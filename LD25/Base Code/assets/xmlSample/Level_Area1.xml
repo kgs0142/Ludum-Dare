@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<level name="Area1" minx="0" miny="2112" maxx="640" maxy="3360" bgColor = "0xff000000" >
+	<layer name="triggers" xScroll="1.000" yScroll="1.000" >
+		<shape type="box" x="586.00" y="2278.00" angle="0.00" wid="50.00" ht="89.22" >
+			<properties>
+				<prop name="target" value="Level_Group3" />
+				<prop name="moveDir" value="RIGHT" />
+			</properties>
+		</shape>
+		<shape type="box" x="0.00" y="2272.00" angle="0.00" wid="32.00" ht="114.00" >
+			<properties>
+				<prop name="target" value="Level_tunnel" />
+				<prop name="moveDir" value="LEFT" />
+			</properties>
+		</shape>
+		<shape type="box" x="0.00" y="2848.00" angle="0.00" wid="32.00" ht="114.00" >
+			<properties>
+				<prop name="target" value="Level_tunnel" />
+				<prop name="moveDir" value="LEFT" />
+			</properties>
+		</shape>
+	</layer>
+	<layer name="Main" xScroll="1.000" yScroll="1.000" >
+		<map csv="xmlSample/mapCSV_Area1_Main.csv" tiles="maintiles.png" x="0.000" y="2112.000" tileWidth="32" tileHeight="32" hasHits="true" collIdx="1" drawIdx="1" >
+			<properties>
+				<tile id="1" >
+					<prop name="CAN_JUMP" value="true" />
+				</tile>
+			</properties>
+		</map>
+	</layer>
+	<layer name="sprites" xScroll="1.000" yScroll="1.000" >
+		<sprite class="Player" name="" x="92.00" y="3256.00" angle="0.00" flip="false" xScale="1.00" yScale="1.00" />
+	</layer>
+</level>

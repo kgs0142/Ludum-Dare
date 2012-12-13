@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<level name="Group3" minx="639" miny="2110" maxx="959" maxy="2590" bgColor = "0xff000000" >
+	<layer name="Main" xScroll="1.000" yScroll="1.000" >
+		<map csv="xmlSample/mapCSV_Group3_Main.csv" tiles="tiles.png" x="639.000" y="2110.000" tileWidth="16" tileHeight="16" hasHits="false" collIdx="1" drawIdx="1" />
+	</layer>
+	<layer name="triggers" xScroll="1.000" yScroll="1.000" >
+		<shape type="box" x="610.00" y="2274.00" angle="0.00" wid="50.00" ht="101.02" >
+			<properties>
+				<prop name="target" value="Level_Area1" />
+				<prop name="moveDir" value="LEFT" />
+			</properties>
+		</shape>
+		<shape type="box" x="-336.00" y="2060.00" angle="0.00" wid="50.00" ht="50.00" />
+	</layer>
+	<layer name="sprites" xScroll="1.000" yScroll="1.000" >
+	</layer>
+</level>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<level name="tunnel" minx="-1504" miny="2080" maxx="-1472" maxy="2112" bgColor = "0xff000000" >
+	<layer name="triggers" xScroll="1.000" yScroll="1.000" >
+		<shape type="box" x="0.00" y="2272.00" angle="0.00" wid="32.00" ht="128.00" >
+			<properties>
+				<prop name="target" value="Level_Area1" />
+				<prop name="moveDir" value="RIGHT" />
+			</properties>
+		</shape>
+		<shape type="box" x="0.00" y="2848.00" angle="0.00" wid="32.00" ht="128.00" >
+			<properties>
+				<prop name="target" value="Level_Area1" />
+				<prop name="moveDir" value="RIGHT" />
+			</properties>
+		</shape>
+	</layer>
+	<layer name="Main" xScroll="1.000" yScroll="1.000" >
+		<map csv="xmlSample/mapCSV_tunnel_Main.csv" tiles="../../data/maintiles.png" x="-1504.000" y="2080.000" tileWidth="32" tileHeight="32" hasHits="true" collIdx="1" drawIdx="1" />
+	</layer>
+	<layer name="sprites" xScroll="1.000" yScroll="1.000" >
+	</layer>
+</level>

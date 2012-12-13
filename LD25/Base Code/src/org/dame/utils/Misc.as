@@ -59,11 +59,12 @@
 				if ( Capabilities.playerType == "PlugIn" )
 				{
 					//filename = "http://localhost/dambotsNew/games/Dame Samples/data/" + filename;
-					filename = "http://dambots.com/games/Dame Samples/data/" + filename;
+                    //FIXME remember to add security policy and change this
+					filename = "http://dambots.com/games/Dame Samples/assets/" + filename;
 				}
 				else
 				{
-					filename = "../data/" + filename;
+					filename = "../assets/" + filename;
 				}
 			}
 			return filename.replace(pattern, "/" );
