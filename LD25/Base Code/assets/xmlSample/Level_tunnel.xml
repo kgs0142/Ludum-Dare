@@ -15,7 +15,13 @@
 		</shape>
 	</layer>
 	<layer name="Main" xScroll="1.000" yScroll="1.000" >
-		<map csv="xmlSample/mapCSV_tunnel_Main.csv" tiles="../../data/maintiles.png" x="-1504.000" y="2080.000" tileWidth="32" tileHeight="32" hasHits="true" collIdx="1" drawIdx="1" />
+		<map csv="xmlSample/mapCSV_tunnel_Main.csv" tiles="maintiles.png" x="-1504.000" y="2080.000" tileWidth="32" tileHeight="32" hasHits="true" collIdx="1" drawIdx="1" >
+			<properties>
+				<tile id="1" >
+					<prop name="CAN_JUMP" value="true" />
+				</tile>
+			</properties>
+		</map>
 	</layer>
 	<layer name="sprites" xScroll="1.000" yScroll="1.000" >
 	</layer>

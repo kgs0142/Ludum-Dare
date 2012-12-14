@@ -1,57 +1,58 @@
 ﻿package com.ai 
 {
+    import org.flixel.FlxCamera;
+    import org.flixel.FlxBasic;
 	import org.flixel.FlxObject;
 	import org.flixel.FlxSprite;
 	
-	public class CTrigger extends FlxSprite
+	public class CTrigger extends CBaseAI
 	{
+        ///trigger for once?
+        private var m_bOnce:Boolean;
+        
+        ///mask enemy? defalut is true
+        private var m_bMaskEnemy:Boolean;
+        
 		public var target:String = "";
 		public var targetObject:Object = null;
 		public var moveDir:uint = FlxObject.NONE;
 		
+        //arrOverlap: [{obj, bEnter, bStay, bExit}..]
+        //check the bExit at update()
+        
 		public function CTrigger(nX:Number, nY:Number, nWidth:uint, nHeight:uint) 
 		{
-			super(nX, nY);
-			width = nWidth;
-			height = nHeight;
-			visible = false;
+            this.x = nX;
+            this.y = nY;
+			this.width = nWidth;
+			this.height = nHeight;
+			this.visible = false;
 		}
-		
+        
+        public override function OnOverlap(aiOverlap:CBaseAI) : void
+        {
+            super.OnOverlap(aiOverlap);
+            
+            trace("Trigger overlap something, OnEnter, OnStay, or OnExit");
+        }
+        
         //FIXME Trigger's ParseProperties
-		public function ParseProperties( properties:Array):void
+		public override function ParseProperties(arrParam:Array) : void
 		{
-			if (properties == null)
+			if (arrParam == null)
             {
                 return;
             }
             
-            var uiLength:uint = properties.length;
+            var uiLength:uint = arrParam.length;
             for (var ui:uint = 0; ui < uiLength; ui++)
             {
-                if (properties[ui].name == "target")
+                //Trigger's guid
+                //if (arrParam[ui].name == "guid")
+                
+                if (arrParam[ui].name == "target")
                 {
-                    target = properties[ui].value;
-                }
-                else if ( properties[ui].name == "moveDir" )
-                {
-                    switch( properties[ui].value )
-                    {
-                        case "LEFT":
-                            moveDir = FlxObject.LEFT;
-                            break;
-                        case "RIGHT":
-                            moveDir = FlxObject.RIGHT;
-                            break;
-                        case "UP":
-                            moveDir = FlxObject.UP;
-                            break;
-                        case "DOWN":
-                            moveDir = FlxObject.DOWN;
-                            break;
-                        default:
-                            moveDir = FlxObject.LEFT;
-                            break;
-                    }
+                    target = arrParam[ui].value;
                 }
             }
 		}

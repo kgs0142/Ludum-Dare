@@ -1,6 +1,6 @@
 ﻿package  
 {
-    import com.game.scene.XmlState;
+    import com.game.module.XmlState;
 	import org.flixel.*;
 	
 	[SWF(width = "640", height = "480", backgroundColor = "#000000")]

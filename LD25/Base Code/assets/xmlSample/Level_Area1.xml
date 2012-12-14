@@ -19,6 +19,11 @@
 				<prop name="moveDir" value="LEFT" />
 			</properties>
 		</shape>
+		<shape type="box" x="137.00" y="3246.00" angle="0.00" wid="50.00" ht="50.00" >
+			<properties>
+				<prop name="guid" value="615361BD-477F-56CE-243F-FE1296CBA2A0" />
+			</properties>
+		</shape>
 	</layer>
 	<layer name="Main" xScroll="1.000" yScroll="1.000" >
 		<map csv="xmlSample/mapCSV_Area1_Main.csv" tiles="maintiles.png" x="0.000" y="2112.000" tileWidth="32" tileHeight="32" hasHits="true" collIdx="1" drawIdx="1" >
@@ -30,6 +35,22 @@
 		</map>
 	</layer>
 	<layer name="sprites" xScroll="1.000" yScroll="1.000" >
-		<sprite class="Player" name="" x="92.00" y="3256.00" angle="0.00" flip="false" xScale="1.00" yScale="1.00" />
+		<sprite class="Player" name="" x="92.00" y="3256.00" angle="0.00" flip="false" xScale="1.00" yScale="1.00" >
+			<properties>
+				<prop name="trigger" value="615361BD-477F-56CE-243F-FE1296CBA2A0" />
+			</properties>
+		</sprite>
+	</layer>
+	<layer name="enemies" xScroll="1.000" yScroll="1.000" >
+		<sprite class="CEnemy" name="" x="282.50" y="3059.50" angle="0.00" flip="false" xScale="1.00" yScale="1.00" >
+			<properties>
+				<prop name="sInfomation" value="Nothing to say" />
+			</properties>
+		</sprite>
+		<sprite class="CEnemy" name="" x="480.50" y="3031.50" angle="0.00" flip="false" xScale="1.00" yScale="1.00" >
+			<properties>
+				<prop name="sInfomation" value="Nothing to say" />
+			</properties>
+		</sprite>
 	</layer>
 </level>

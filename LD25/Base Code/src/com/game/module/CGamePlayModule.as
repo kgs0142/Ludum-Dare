@@ -1,6 +1,7 @@
-package com.game.scene
+package com.game.module
 {
     import ai.CPlayer;
+    import com.game.CBaseScene;
     import event.CAssetEvent;
     import system.CResourceManager;
     
@@ -14,8 +15,8 @@ package com.game.scene
     
     import system.CAssetLoader;
     import system.CLuaManager;
-      
-    public class CGamePlayScene extends FlxState
+
+    public class CGamePlayModule extends CBaseScene
     {
         private var m_player:CPlayer;
         

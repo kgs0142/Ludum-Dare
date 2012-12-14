@@ -1,5 +1,6 @@
 package org.dame 
 {
+    import com.ai.CEnemy;
     import com.ai.CPlayer;
     import com.ai.CTrigger;
     import org.dame.objects.BoxData;
@@ -43,10 +44,13 @@ package org.dame
 		// the group where the player must be added.
 		public var spritesGroup:LayerData = null;
 		
+        // the enemies group
+        public var enemiesGroup:LayerData = null;
+        
 		private var numItemsLoading:int = 0;
 		private var waitForLoadIntervalId:uint;
 		
-		private static const FADE_TIME:Number = 1;
+		private static const FADE_TIME:Number = 0.5;
 		
 		public function LevelData() 
 		{
@@ -104,38 +108,50 @@ package org.dame
 				var layer:LayerData = new LayerData(layerXML.@name, layerXML.@xScroll, 
                                                     layerXML.@yScroll);
 				var properties:Array = GetPropertiesFromXML(layerXML);
-				if ( layer.name == "sprites" )
+                
+				if (layer.name == "sprites")
 				{
 					spritesGroup = layer;
 				}
+                else if (layer.name == "enemies")
+                {
+                    enemiesGroup = layer;
+                }
                 
 				for each( var spriteXML:XML in layerXML.sprite )
 				{
-					var SpriteClass:Class = GetSpriteClassFromName(spriteXML.attribute("class"));
-					if ( SpriteClass != null )
+					var SpriteClass:Class;
+                    SpriteClass = GetSpriteClassFromName(spriteXML.attribute("class"));
+					if ( SpriteClass == null )
 					{
-						var sprite:FlxSprite = addSpriteToLayer(null, SpriteClass, layer, 
-                                                                spriteXML.@x, spriteXML.@y, 
-                                                                spriteXML.@angle, layer.xScroll, 
-                                                                layer.yScroll, spriteXML.@flip == true, 
-                                                                spriteXML.@xScale, spriteXML.@yScale, 
-                                                                GetPropertiesFromXML(spriteXML), onAddCallback );
-						if ( spriteXML.hasOwnProperty("@pathId") )
-						{
-							var pathId:int = int(spriteXML.@pathId);
-							if ( paths.length > pathId )
-							{
-								var path:PathData = paths[pathId];
-								path.childAttachNode = int(spriteXML.@attachNode);
-								path.childAttachT = Number(spriteXML.@attachT);
-							}
-							else
-							{
-								pathLinks[pathId] = { xml:spriteXML, obj:sprite };
-							}
-						}
-						CheckLinksXML(spriteXML, sprite);
-					}
+                        continue;
+                    }
+                    
+                    var sprite:FlxSprite = addSpriteToLayer(null, SpriteClass, layer, 
+                                                            spriteXML.@x, spriteXML.@y, 
+                                                            spriteXML.@angle, layer.xScroll, 
+                                                            layer.yScroll, spriteXML.@flip == true, 
+                                                            spriteXML.@xScale, spriteXML.@yScale, 
+                                                            GetPropertiesFromXML(spriteXML), onAddCallback );
+                    
+                    if (spriteXML.hasOwnProperty("@pathId") == false)
+                    {
+                        continue;
+                    }
+                    
+                    var pathId:int = int(spriteXML.@pathId);
+                    if ( paths.length > pathId )
+                    {
+                        var path:PathData = paths[pathId];
+                        path.childAttachNode = int(spriteXML.@attachNode);
+                        path.childAttachT = Number(spriteXML.@attachT);
+                    }
+                    else
+                    {
+                        pathLinks[pathId] = {xml:spriteXML, obj:sprite};
+                    }
+                    
+                    CheckLinksXML(spriteXML, sprite);
 				}
                 
 				for each( var shapeXML:XML in layerXML.shape )
@@ -143,7 +159,8 @@ package org.dame
 					var shape:Object;
 					if ( shapeXML.@type == "box" )
 					{
-						shape = new BoxData(shapeXML.@x, shapeXML.@y, shapeXML.@angle, shapeXML.@wid, shapeXML.@ht, layer );
+						shape = new BoxData(shapeXML.@x, shapeXML.@y, shapeXML.@angle, 
+                                            shapeXML.@wid, shapeXML.@ht, layer );
 					}
 					else if ( shapeXML.@type == "circle" )
 					{
@@ -151,10 +168,16 @@ package org.dame
 					}
 					else if ( shapeXML.@type == "text" )
 					{
-						shape = new TextData( shapeXML.@x, shapeXML.@y, shapeXML.@wid, shapeXML.@ht, shapeXML.@angle, shapeXML.@text, shapeXML.@font, shapeXML.@size, uint(shapeXML.@color), shapeXML.@align );
+						shape = new TextData(shapeXML.@x, shapeXML.@y, shapeXML.@wid, 
+                                             shapeXML.@ht, shapeXML.@angle, shapeXML.@text, 
+                                             shapeXML.@font, shapeXML.@size, uint(shapeXML.@color), 
+                                             shapeXML.@align );
 					}
+                    
 					shapes.push(shape);
-					callbackNewData( shape, onAddCallback, layer, GetPropertiesFromXML(shapeXML), shapeXML.@xScroll, shapeXML.@yScroll );			
+					callbackNewData(shape, onAddCallback, layer, 
+                                    GetPropertiesFromXML(shapeXML), shapeXML.@xScroll, 
+                                    shapeXML.@yScroll);			
 					CheckLinksXML(shapeXML, path);
 				}
                 
@@ -388,19 +411,27 @@ package org.dame
 		
 		override public function addSpriteToLayer(obj:FlxSprite, type:Class, layer:FlxGroup, xpos:Number, ypos:Number, angle:Number, scrollX:Number, scrollY:Number, flipped:Boolean = false, scaleX:Number = 1, scaleY:Number = 1, properties:Array = null, onAddCallback:Function = null):FlxSprite
 		{
-			var spr:FlxSprite = super.addSpriteToLayer(obj, type, layer, xpos, ypos, angle, scrollX, scrollY, flipped, scaleX, scaleY, properties, onAddCallback);
+			var spr:FlxSprite = super.addSpriteToLayer(obj, type, layer, xpos, ypos, angle, 
+                                                       scrollX, scrollY, flipped, scaleX, 
+                                                       scaleY, properties, onAddCallback);
 			
-			if ( !(spr is CTrigger) && !(spr is CPlayer) )
+			if ( !(spr is CTrigger) && !(spr is CPlayer) && !(spr is CEnemy))
 			{
 				sprites.push(spr);
 			}
 			
+            
+            if (spr is CEnemy)
+            {
+                enemiesGroup.add(spr);
+            }
+            
 			// could add to the collideGroup here as well...
 			
-			//if (spr is CTrigger || spr is Coin) // or any other overlapping sprite
-			//{
-				//overlapGroup.add(spr as FlxSprite);
-			//}
+			if (spr is CTrigger) // || spr is Coin) // or any other overlapping sprite
+			{
+				overlapGroup.add(spr);
+			}
             
 			return spr;
 		}
