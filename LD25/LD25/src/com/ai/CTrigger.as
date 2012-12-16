@@ -106,6 +106,7 @@
                 }
                 
                 //tween
+                var instance:CTrigger = this;
                 TweenLite.killTweensOf(m_ftDialog);
                 TweenLite.to(m_ftDialog, 0.5,
                 {
@@ -114,7 +115,11 @@
                     {
                         TweenLite.to(m_ftDialog, 0.3,
                         {
-                            alpha: 0
+                            alpha: 0,
+                            onComplete: function () : void
+                            {
+                                instance.bLockOverlap = false;
+                            }
                         });
                     }
                 });
@@ -168,7 +173,7 @@
         {
             super.update();
             
-            m_ftDialog.x = this.x - this.width/2 - m_ftDialog.width/2;
+            m_ftDialog.x = this.x - this.width/2;
             m_ftDialog.y = this.y - 20;
 
         }

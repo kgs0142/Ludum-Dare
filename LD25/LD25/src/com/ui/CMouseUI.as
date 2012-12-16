@@ -1,5 +1,6 @@
 package com.ui 
 {
+    import com.game.CBaseScene;
     import com.global.CDefine;
     import com.ui.flash.CWheelUI;
     import flash.geom.Matrix;
@@ -49,6 +50,13 @@ package com.ui
         
         public function Update() : void
         {
+            var cBaseScene:CBaseScene = FlxG.state as CBaseScene;
+            
+            m_flxsMouse.x = cBaseScene.currentLevel.boundsMin.x + 
+                            FlxG.width/2 - m_flxsMouse.width/2;
+            m_flxsMouse.y = cBaseScene.currentLevel.boundsMin.y + 
+                            m_flxsMouse.height*3;
+                            
             m_flxsMouse.postUpdate();
         }
         

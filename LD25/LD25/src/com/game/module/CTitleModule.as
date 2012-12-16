@@ -27,6 +27,8 @@ package com.game.module
                                    100, "Press W");
             this.add(m_ftText);  
             
+            CAudioManager.Get().stopMusic();
+            CAudioManager.Get().PlayMusic("Music001", 0.5);
             //CAudioManager.Get().PlayMusic("TitleMusic", 0.5);
         }
         
@@ -36,6 +38,7 @@ package com.game.module
             
             if (FlxG.keys.justPressed("W"))
             {
+                CAudioManager.Get().stopMusic();
                 CAudioManager.Get().PlaySnd("TitleSelect");
                 FlxG.switchState(new CGamePlayModule());
             }

@@ -1,6 +1,9 @@
 package com.system
 {
     import event.CAssetEvent;
+    import flash.events.HTTPStatusEvent;
+    import flash.events.IOErrorEvent;
+    import flash.events.SecurityErrorEvent;
     
     import flash.events.Event;
     import flash.events.EventDispatcher;
@@ -64,7 +67,6 @@ package com.system
                          CAssetDefine.EVENT_LUA_PATH);
             this.LoadLua(CAssetDefine.QTE_LUA_NAME,
                          CAssetDefine.QTE_LUA_PATH);
-            
         }
         
         //Load Lua 呼叫的
@@ -79,6 +81,9 @@ package com.system
             urlLoader = m_objLuaAsset[sName];
             urlLoader.dataFormat = URLLoaderDataFormat.TEXT;
             urlLoader.addEventListener(Event.COMPLETE, this.LuaLoadCompleteHD);
+			//urlLoader.addEventListener(IOErrorEvent.IO_ERROR, loadFailedIO,false,0,true);
+			//urlLoader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, loadFailedSecurity, false, 0, true);
+			//urlLoader.addEventListener(HTTPStatusEvent.HTTP_STATUS, httpStatusUpdate, false, 0, true);
             urlRequest = new URLRequest(m_sPrefix + sPath);
 
             //註冊到Load Check Object Table中
@@ -90,6 +95,24 @@ package com.system
                 urlLoader.load(urlRequest);
             }, 0, 1, 1);
         }
+        
+            //function httpStatusUpdate(e:HTTPStatusEvent):void
+            //{
+                //FlxG.log("HTTPStatus: " + event.status);
+                //throw new Error("HTTPStatus: " + e.status);
+            //}
+            //
+            //function loadFailedIO(e:IOErrorEvent ):void
+            //{
+                //FlxG.log("IO Error: Failed to load file: " + filename + " == " + event.text);
+                //throw new Error ("IO Error: Failed to load file: " + e.text);
+            //}
+            //
+            //function loadFailedSecurity(e:SecurityErrorEvent ):void
+            //{
+                //FlxG.log("Security Error: Failed to load file:"  + filename + " == " + event.text);
+                //throw new Error("Security Error: Failed to load file:"  + e.text);
+            //}
         
         //Lua Asset Load complete 呼叫的函式
         private function LuaLoadCompleteHD(e:Event) : void

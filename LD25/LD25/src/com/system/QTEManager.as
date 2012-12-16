@@ -179,7 +179,7 @@ package com.system
             var cBaseScene:CBaseScene = FlxG.state as CBaseScene;
             m_ftTipMsg.x = cBaseScene.currentLevel.boundsMin.x + FlxG.width/2 - 50; 
             m_ftTipMsg.y = cBaseScene.currentLevel.boundsMin.y + FlxG.height - 25;
-            
+
             //QTEUnit over------------------------
             if (m_arrQTEQuest.length == 0)
             {
@@ -230,13 +230,19 @@ package com.system
             {
                 m_fnUnitOK();
                 m_arrQTEQuest.shift();
+                CAudioManager.Get().PlaySnd("PlayerHit", 0.5);
             }
             //if IsComplete is false AND accuTime is > Counting time : FAIL
             else if (m_arrQTEQuest[0].IsComplete() == false &&
                      m_arrQTEQuest[0].nAccuTime > m_arrQTEQuest[0].nCounting)
             {
-                if (m_fnUnitFail) m_fnUnitFail();
+                if (m_fnUnitFail != null)
+                {   
+                    m_fnUnitFail();
+                }
+                
                 m_arrQTEQuest.shift();
+                CAudioManager.Get().PlaySnd("PlayerHurt", 0.5);
             }
         }
         
@@ -261,7 +267,10 @@ package com.system
             
             m_cMouseUI.Render(uiArcs);
             
-            m_ftTipMsg.draw();
+            CONFIG::debug
+            {
+                m_ftTipMsg.draw();
+            }
         }
         
         public function QTEManager(proxy:CSSingletonProxy)

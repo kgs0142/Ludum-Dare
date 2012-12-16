@@ -30,9 +30,9 @@ package com.ai
             this.maxVelocity.x = 20;
             this.maxVelocity.y = 500;
             //this.acceleration.x = 20;
-            this.acceleration.y = 500;
+            this.acceleration.y = 800;
             this.drag.x = this.maxVelocity.x*4;
-            this.mass = 500;
+            this.mass = 1000;
 
             m_iHP = 3;
             

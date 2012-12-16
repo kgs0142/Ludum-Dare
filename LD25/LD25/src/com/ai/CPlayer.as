@@ -40,6 +40,7 @@
             this.addAnimation("cryQTE", [3, 2, 1, 0, 0, 0, 1, 2, 16, 
                                          17, 16, 17, 16, 17, 16, 17], 4, false);
             this.addAnimation("cry", [16, 17], 4);
+            this.addAnimation("skull", [12], 1);
             
             this.play("idle");
 
@@ -63,7 +64,7 @@
 		}
         
         override public function OnOverlap(aiOverlap:CBaseAI):void 
-        {
+        {           
             super.OnOverlap(aiOverlap);
             
             if (this.active == false ||

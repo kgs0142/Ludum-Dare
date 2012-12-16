@@ -79,9 +79,12 @@ package com.game.module
             
             //hmm... I know it's weird... but the location need change here.
             
-            //reload lua file btn
-            this.add(new FlxButton(currentLevel.boundsMin.x, 
-                                   currentLevel.boundsMin.y, "Reload Lua", ReloadLua));
+            CONFIG::debug
+            {
+                //reload lua file btn
+                this.add(new FlxButton(currentLevel.boundsMin.x, 
+                                       currentLevel.boundsMin.y, "Reload Lua", ReloadLua));
+            }
             
             //QTEManager
             this.add(QTEManager.Get());

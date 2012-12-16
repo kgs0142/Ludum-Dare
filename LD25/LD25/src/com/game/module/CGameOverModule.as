@@ -1,6 +1,9 @@
 package com.game.module 
 {
+    import adobe.utils.CustomActions;
     import com.greensock.TweenLite;
+    import com.system.CSceneManager;
+    import com.util.CBitFlag;
     import org.flixel.FlxG;
     import org.flixel.FlxPoint;
 	import org.flixel.FlxState;
@@ -25,6 +28,8 @@ package com.game.module
             m_ftTitle.text = "YOU";
             
             TweenLite.delayedCall(0.5, Ingame000);
+            
+            CSceneManager.Get().cTriggerFlag = new CBitFlag(4);
         }
         
         private function Ingame000() : void

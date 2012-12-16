@@ -33,7 +33,8 @@ package com.system
         
         public function stopMusic() : void
         {
-            FlxG.music.stop();
+            if (FlxG.music)
+                FlxG.music.stop();
         }
         
         public function Create() : void
@@ -58,7 +59,8 @@ package com.system
                 "SanityEffect2" : SanityEffect2,
                 "SanityEffect3" : SanityEffect3,
                 "SanityEffect4" : SanityEffect4,
-                "TitleSelect" : TitleSelect
+                "TitleSelect" : TitleSelect,
+                "W" : W
             };
         }
         
