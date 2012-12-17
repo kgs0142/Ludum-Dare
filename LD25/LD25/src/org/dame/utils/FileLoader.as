@@ -29,12 +29,14 @@ package org.dame.utils
 			filename = Misc.GetStandardFileString(filename);
 			var urlRequest:URLRequest = new URLRequest(filename);
 			var urlLoader:URLLoader = new URLLoader();
+            
 			urlLoader.dataFormat = URLLoaderDataFormat.TEXT; // default
 			urlLoader.addEventListener(Event.COMPLETE, loaded,false,0,true);
 			urlLoader.addEventListener(IOErrorEvent.IO_ERROR, loadFailedIO,false,0,true);
 			urlLoader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, loadFailedSecurity, false, 0, true);
 			urlLoader.addEventListener(HTTPStatusEvent.HTTP_STATUS, httpStatusUpdate, false, 0, true);
-			var intervalId:uint = setInterval(continueLoading, 200);
+			
+            var intervalId:uint = setInterval(continueLoading, 200);
 			urlLoader.load(urlRequest);
 			
 			trace( "load " + filename);
@@ -72,7 +74,7 @@ package org.dame.utils
 			function loadFailedIO(event:IOErrorEvent ):void
 			{
 				//FlxG.log("IO Error: Failed to load file: " + filename + " == " + event.text);
-				trace("IO Error: Failed to load file: " + event.text);
+				throw new Error("IO Error: Failed to load file: " + event.text);
 				if( onLoadFailed != null )
 					onLoadFailed( filename );
 			}
@@ -80,7 +82,7 @@ package org.dame.utils
 			function loadFailedSecurity(event:SecurityErrorEvent ):void
 			{
 				//FlxG.log("Security Error: Failed to load file:"  + filename + " == " + event.text);
-				trace("Security Error: Failed to load file:"  + event.text);
+				throw new Error("Security Error: Failed to load file:"  + event.text);
 				if( onLoadFailed != null )
 					onLoadFailed( filename );
 			}

@@ -30,12 +30,12 @@
 			<prop name="event" value="e029" />
 		</properties>
 	</layer>
-	<layer name="sprites" xScroll="1.000" yScroll="1.000" >
-		<sprite class="CPlayer" name="Player" x="573.00" y="242.00" angle="0.00" flip="false" xScale="1.00" yScale="1.00" />
-	</layer>
 	<layer name="others" xScroll="1.000" yScroll="1.000" >
 		<sprite class="CDoor" name="Door" x="597.00" y="229.00" angle="0.00" flip="false" xScale="1.00" yScale="1.00" />
 		<sprite class="CDoor" name="Door" x="357.00" y="229.00" angle="0.00" flip="false" xScale="1.00" yScale="1.00" />
 		<sprite class="CDeadGuy" name="DeadGuy" x="367.00" y="244.00" angle="0.00" flip="false" xScale="1.00" yScale="1.00" />
+	</layer>
+	<layer name="sprites" xScroll="1.000" yScroll="1.000" >
+		<sprite class="CPlayer" name="Player" x="573.00" y="242.00" angle="0.00" flip="false" xScale="1.00" yScale="1.00" />
 	</layer>
 </level>

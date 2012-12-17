@@ -1,9 +1,12 @@
 package com.system
 {
     import event.CAssetEvent;
+    import flash.events.AsyncErrorEvent;
     import flash.events.HTTPStatusEvent;
     import flash.events.IOErrorEvent;
     import flash.events.SecurityErrorEvent;
+    import flash.system.Security;
+    import flash.utils.ByteArray;
     
     import flash.events.Event;
     import flash.events.EventDispatcher;
@@ -20,6 +23,7 @@ package com.system
     
     public class CAssetLoader extends EventDispatcher
     {
+        private static const ENCODING:String = "utf-8";
         //Lua Asset
         private var m_objLuaAsset:Object;
 
@@ -45,8 +49,21 @@ package com.system
             //Loading 畫面
             
             //Security Domain
+            //Security.loadPolicyFile("http://kgs0142.myweb.hinet.net/");
+            //Security.loadPolicyFile("http://kgs0142.sg1006.myweb.hinet.net/");
             
-            //var sPrefix:String = (CONFIG::debug) ? "./" : "/beta/bin/";
+            Security.allowDomain("*");
+            Security.allowDomain("http://kgs0142.myweb.hinet.net/");
+            Security.allowDomain("http://kgs0142.sg1006.myweb.hinet.net/");
+            Security.allowDomain("http://kgs0142.myweb.hinet.net/www/Ludum_Dare/LD25/assets/");
+            Security.allowDomain("http://kgs0142.sg1006.myweb.hinet.net/www/Ludum_Dare/LD25/assets/");
+            Security.allowDomain("http://kgs0142.myweb.hinet.net/www/Ludum_Dare/LD25/assets/lua");
+            Security.allowDomain("http://kgs0142.sg1006.myweb.hinet.net/www/Ludum_Dare/LD25/assets/lua");
+            
+            //prefix
+            //m_sPrefix = (CONFIG::debug) ? "../" : 
+            //"http://kgs0142.sg1006.myweb.hinet.net/www/Ludum_Dare/LD25/";
+            
             m_sPrefix = "../";
             
             m_objLuaAsset = new Object();
@@ -79,13 +96,20 @@ package com.system
             
             m_objLuaAsset[sName] = new URLLoader();
             urlLoader = m_objLuaAsset[sName];
-            urlLoader.dataFormat = URLLoaderDataFormat.TEXT;
+            //urlLoader.dataFormat = URLLoaderDataFormat.TEXT;
+            
+            //IMPORTANT HERE
+            urlLoader.dataFormat = URLLoaderDataFormat.BINARY;
+            //-----------------------
+            
             urlLoader.addEventListener(Event.COMPLETE, this.LuaLoadCompleteHD);
-			//urlLoader.addEventListener(IOErrorEvent.IO_ERROR, loadFailedIO,false,0,true);
-			//urlLoader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, loadFailedSecurity, false, 0, true);
-			//urlLoader.addEventListener(HTTPStatusEvent.HTTP_STATUS, httpStatusUpdate, false, 0, true);
+            urlLoader.addEventListener(AsyncErrorEvent.ASYNC_ERROR, asyncError, false, 0 , true);
+			urlLoader.addEventListener(IOErrorEvent.IO_ERROR, loadFailedIO,false,0,true);
+			urlLoader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, loadFailedSecurity, false, 0, true);
+			urlLoader.addEventListener(HTTPStatusEvent.HTTP_STATUS, httpStatusUpdate, false, 0, true);
+            
             urlRequest = new URLRequest(m_sPrefix + sPath);
-
+            
             //註冊到Load Check Object Table中
             this.RegisterLoadTable(sName);
             
@@ -96,23 +120,34 @@ package com.system
             }, 0, 1, 1);
         }
         
-            //function httpStatusUpdate(e:HTTPStatusEvent):void
-            //{
-                //FlxG.log("HTTPStatus: " + event.status);
-                //throw new Error("HTTPStatus: " + e.status);
-            //}
-            //
-            //function loadFailedIO(e:IOErrorEvent ):void
-            //{
-                //FlxG.log("IO Error: Failed to load file: " + filename + " == " + event.text);
-                //throw new Error ("IO Error: Failed to load file: " + e.text);
-            //}
-            //
-            //function loadFailedSecurity(e:SecurityErrorEvent ):void
-            //{
-                //FlxG.log("Security Error: Failed to load file:"  + filename + " == " + event.text);
-                //throw new Error("Security Error: Failed to load file:"  + e.text);
-            //}
+        private function asyncError(e:AsyncErrorEvent) : void
+        {
+            var urlLoader:URLLoader = (e.currentTarget as URLLoader);
+            var sName:String = this.GetName(urlLoader);
+            FlxG.log("ASYNC Error: Failed to load file: " + sName + " == " + e.text);
+            throw new Error ("ASYNC Error: Failed to load file: " + e.text);
+        }
+        
+        private function httpStatusUpdate(e:HTTPStatusEvent):void
+        {      
+            FlxG.log("HTTPStatus: " + e.status);
+        }
+            
+        private function loadFailedIO(e:IOErrorEvent ):void
+        {
+            var urlLoader:URLLoader = (e.currentTarget as URLLoader);
+            var sName:String = this.GetName(urlLoader);
+            FlxG.log("IO Error: Failed to load file: " + sName + " == " + e.text);
+            throw new Error ("IO Error: Failed to load file: " + e.text);
+        }
+            
+        private function loadFailedSecurity(e:SecurityErrorEvent ):void
+        {
+            var urlLoader:URLLoader = (e.currentTarget as URLLoader);
+            var sName:String = this.GetName(urlLoader);
+            FlxG.log("Security Error: Failed to load file:"  + sName + " == " + e.text);
+            throw new Error("Security Error: Failed to load file:"  + e.text);
+        }
         
         //Lua Asset Load complete 呼叫的函式
         private function LuaLoadCompleteHD(e:Event) : void
@@ -122,7 +157,14 @@ package com.system
             urlLoader.close();
             
             var sName:String = this.GetName(urlLoader);
-            m_objLuaAsset[sName] = urlLoader.data;
+            
+            //IMPORTANT HERE--------------------------------
+            var byte:ByteArray = ByteArray(urlLoader.data);
+            var sFileContent:String = byte.readMultiByte(byte.length, ENCODING);
+            //------------------------------------------------
+
+            m_objLuaAsset[sName] = sFileContent;
+            //m_objLuaAsset[sName] = urlLoader.data;
             
             urlLoader = null;
             

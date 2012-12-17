@@ -1,4 +1,4 @@
-﻿local FlxG = as3.class.org.flixel.FlxG
+local FlxG = as3.class.org.flixel.FlxG
 local FlxSprite = as3.class.org.flixel.FlxSprite
 local FlxObject = as3.class.org.flixel.FlxObject
 

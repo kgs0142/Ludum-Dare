@@ -1,4 +1,4 @@
-﻿local FlxState = as3.class.org.flixel.FlxState
+local FlxState = as3.class.org.flixel.FlxState
 local FlxTilemap = as3.class.org.flixel.FlxTilemap
 local FlxSprite = as3.class.org.flixel.FlxSprite
 local FlxGroup = as3.class.org.flixel.FlxGroup
@@ -196,3 +196,4 @@ function afterUpdate()
         return
     end
 end
+

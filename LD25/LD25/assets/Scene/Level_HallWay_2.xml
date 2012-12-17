@@ -14,7 +14,7 @@
 				<prop name="once" value="false" />
 			</properties>
 		</shape>
-		<shape type="box" x="628.00" y="876.00" angle="0.00" wid="16.14" ht="33.33" >
+		<shape type="box" x="623.00" y="876.00" angle="0.00" wid="21.14" ht="33.33" >
 			<properties>
 				<prop name="event" value="e021" />
 				<prop name="target" value="B8B4F09C-3464-8CD3-E19C-3DD32363BD80" />

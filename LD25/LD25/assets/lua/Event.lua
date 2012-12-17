@@ -1,9 +1,11 @@
-﻿local FlxG = as3.class.org.flixel.FlxG
+local FlxG = as3.class.org.flixel.FlxG
 local FlxControl = as3.class.org.flixel.plugin.photonstorm.FlxControl;
 local CGamePlayModule = as3.class.com.game.module.CGamePlayModule;
 local CGameOverModule = as3.class.com.game.module.CGameOverModule;
 local TweenLite = as3.class.com.greensock.TweenLite;
 local bitflag = sceneMgr.cTriggerFlag;
+
+--sceneMgr.sCurScenePath = "Scene/Level_Entrance.xml";
 
 local replayAgain = false;
 function lua_e001()
@@ -13,17 +15,28 @@ function lua_e001()
 	end
 
     FlxControl.stop();
-    player.ftDialog.text = "What the hell happened here?!"
-    TweenLite.delayedCall(1.5, lua_e001_00);
+
+    if (replayAgain == true) then
+    	player.ftDialog.text = "Here AGAIN???!!!!"
+    	audioMgr.PlaySnd("Dialog", 0.5);
+    	TweenLite.delayedCall(2.5, lua_e001_02);
+    else
+    	player.play("up")
+	    player.ftDialog.text = "Aw....."
+	    audioMgr.PlaySnd("Dialog", 0.5);
+	    TweenLite.delayedCall(1.5, lua_e001_00);
+	end
 end
 
 function lua_e001_00()
-    player.ftDialog.text = "...even don't have a window..."
+    player.ftDialog.text = "What the hell happened here?!"
+    audioMgr.PlaySnd("Dialog", 0.5);
     TweenLite.delayedCall(1.5, lua_e001_01);
 end
 
 function lua_e001_01()
     player.ftDialog.text = "Need find a way out of here..."
+    audioMgr.PlaySnd("Dialog", 0.5);
     TweenLite.delayedCall(1.5, lua_e001_02);
 end
 
@@ -41,6 +54,11 @@ function lua_e002()
 	trigger.bLockOverlap = true;
 
     FlxControl.stop();
+    player.velocity.x = 0;
+    player.velocity.y = 0;
+    player.acceleration.x = 0;
+    player.acceleration.y = 0;
+    audioMgr.PlaySnd("W", 0.5);
     player.ftDialog.text = "Here has a diary."
     TweenLite.delayedCall(1.5, lua_e002_00);
 end
@@ -73,6 +91,7 @@ end
 function lua_e003()
 	trigger.bLockOverlap = true;
 	--change scene
+	audioMgr.PlaySnd("HitSound", 0.5);
 	sceneMgr.sCurScenePath = "Scene/Level_OutRoom.xml";
 	FlxG.resetState();
 end
@@ -91,12 +110,12 @@ function lua_e004()
     player.velocity.y = -100
 	--shock to 9
 	sceneMgr.iPlayerHP = 9;
-    player.ftDialog.text = "What the ...(Jump + shock)"
+    player.ftDialog.text = "What the ...!!!"
     TweenLite.delayedCall(1.5, lua_e004_00);
 end
 
 function lua_e004_00()
-	player.ftDialog.text = "Oh MY GOSH!! the kid is dead awfly..."
+	player.ftDialog.text = "Oh MY GOSH!! the kid is dead..."
 	TweenLite.delayedCall(1.5, lua_e004_01);
 end
 
@@ -131,6 +150,10 @@ function lua_e005()
 	trigger.bLockOverlap = true;
 
     FlxControl.stop();
+    player.velocity.x = 0;
+    player.velocity.y = 0;
+    player.acceleration.x = 0;
+    player.acceleration.y = 0;
     player.ftDialog.text = "... ..."
     TweenLite.delayedCall(1.5, lua_e005_00);
 end
@@ -165,6 +188,7 @@ function lua_e006()
 
 	trigger.bLockOverlap = true;
 	--change scene
+	audioMgr.PlaySnd("HitSound", 0.5);
 	sceneMgr.sCurScenePath = "Scene/Level_First.xml";
 	FlxG.resetState();
 end
@@ -173,6 +197,7 @@ end
 function lua_e007()
 	trigger.bLockOverlap = true;
 	--change scene
+	audioMgr.PlaySnd("HitSound", 0.5);
 	sceneMgr.sCurScenePath = "Scene/Level_OutKitchen.xml";
 	FlxG.resetState();
 end
@@ -197,6 +222,7 @@ function lua_e009(  )
 		return;
 	end
 
+	audioMgr.PlaySnd("SanityEffect", 0.5);
 	trigger.cAITarget.play("dieAnim")
 
     bitflag.bitOn(009)
@@ -204,6 +230,7 @@ end
 
 function lua_e010( )
 	trigger.bLockOverlap = true;
+	audioMgr.PlaySnd("EarthQuake", 0.5);
 	player.ftDialog.text = "The door is broken";
 	TweenLite.delayedCall(1.5, function_clear_player_dlg);
 end
@@ -238,17 +265,29 @@ function lua_e013()
 		"I dont want to watch this anymore."
 	}
 
+	trigger.bLockOverlap = true;
+
 	tvCheckTimes = tvCheckTimes + 1
 	if (tvCheckTimes > 4) then tvCheckTimes = 4 end
 
-	trigger.bLockOverlap = true;
+	
 	player.ftDialog.text = dialog[tvCheckTimes]
 	TweenLite.delayedCall(2.5, function_clear_player_dlg);
+
+	audioMgr.PlaySnd("W");
 
 	if (tvCheckTimes == 3 and
 		as3.tolua(bitflag.check(13)) == false) then
 
+		audioMgr.PlaySnd("SanityEffect2");
+
 		FlxG.shake(0.005, 0.05)
+
+	    FlxControl.stop();
+	    player.velocity.x = 0;
+	    player.velocity.y = 0;
+	    player.acceleration.x = 0;
+	    player.acceleration.y = 0;
 
 		--ending condion
 		bitflag.bitOn(13)
@@ -261,9 +300,16 @@ function lua_e013()
 	end
 end
 
+local hangerCheckTimes = 0
 function lua_e014( )
+	trigger.bLockOverlap = true;
 	player.ftDialog.text = "seems here lives a doctor and a child"
 	TweenLite.delayedCall(2.0, function_clear_player_dlg);
+
+	hangerCheckTimes = hangerCheckTimes + 1
+	if (hangerCheckTimes == 2) then
+		audioMgr.PlaySnd("Laugh", 0.5)
+	end
 end
 
 function lua_e015()
@@ -282,7 +328,11 @@ function lua_e016()
 	if (hallway_Counter1 < 3 and hallway_Counter2 < 3) then
 		sceneMgr.sCurScenePath = "Scene/Level_HallWay.xml";
 	elseif (gotTheKey == true) then
-		FlxControl.stop();
+        FlxControl.stop();
+        player.velocity.x = 0;
+        player.velocity.y = 0;
+        player.acceleration.x = 0;
+        player.acceleration.y = 0;
 		player.ftDialog.text = "Why do you want to go back?!"
 		TweenLite.delayedCall(1.5, function_clear_player_dlg);
 		return;
@@ -295,14 +345,18 @@ end
 
 --the final--------------------------------------------------------------------------------------------------
 function lua_e017()
+
+	trigger.bLockOverlap = true;
+
 	if (gotTheKey == false) then
+		audioMgr.PlaySnd("EarthQuake", 0.5)
 		player.ftDialog.text = "Oh my... I need the key to get out of here!"
 		TweenLite.delayedCall(1.5, function_clear_player_dlg)
 		return;
 	end
 
 	audioMgr.PlayMusic("Music002")
-	trigger.bLockOverlap = true;
+	
 	end_ingame000()
 end
 
@@ -311,9 +365,15 @@ function end_ingame000()
 	--play fog effect, player down
 	--player
 	--player.active = false;
-	FlxControl.stop();
+    FlxControl.stop();
+    player.velocity.x = 0;
+    player.velocity.y = 0;
+    player.acceleration.x = 0;
+    player.acceleration.y = 0;
 	player.play("down")
 	player.ftDialog.text = "Ahhhhhh!"
+
+	trigger.bLockOverlap = true;
 	--player.kill();
 
 	enemy.active = true;
@@ -368,7 +428,9 @@ function end_ingame009()
 	enemy.ftDialog.text = "YOU VILLAIN!"
 
 	replayAgain = true;
-
+	
+	sceneMgr.sCurScenePath = "Scene/Level_First.xml";
+	
 	--fade out
 	camera.fade(4278190080, 2, end_ingame010);
 	--ending
@@ -406,7 +468,11 @@ function lua_e020()
 	hallway_Counter2 = hallway_Counter2 + 1;
 
 	trigger.bLockOverlap = true;
-	if (hallway_Counter2 > 3) then 
+
+	if (hallway_Counter2 == 3) then
+		function_mad_player_001()
+		return;
+	elseif (hallway_Counter2 > 3) then 
 		sceneMgr.sCurScenePath = "Scene/Level_LivingRoom_2.xml";
 	end
 		
@@ -417,7 +483,10 @@ function lua_e021()
 	hallway_Counter2 = hallway_Counter2 + 1;
 
 	trigger.bLockOverlap = true;
-	if (hallway_Counter2 > 3) then 
+	if (hallway_Counter2 == 3) then
+		function_mad_player_001()
+		return;
+	elseif (hallway_Counter2 > 3) then 
 		sceneMgr.sCurScenePath = "Scene/Level_LivingRoom_2.xml";
 	end
 		
@@ -466,7 +535,11 @@ function lua_e026()
 		dialogIndex2 = 3
 	end
 
-	FlxControl.stop();
+    FlxControl.stop();
+    player.velocity.x = 0;
+    player.velocity.y = 0;
+    player.acceleration.x = 0;
+    player.acceleration.y = 0;
 	trigger.bLockOverlap = true;
 
 	player.ftDialog.text = dialog2[dialogIndex2]
@@ -498,7 +571,11 @@ function lua_e029()
 		return;
 	end
 
-	FlxControl.stop()
+    FlxControl.stop();
+    player.velocity.x = 0;
+    player.velocity.y = 0;
+    player.acceleration.x = 0;
+    player.acceleration.y = 0;
 	player.play("down")
 	player.ftDialog.text = "Aw....."
 	TweenLite.delayedCall(2, lua_e029_00)
@@ -524,16 +601,20 @@ function lua_e029_02()
 end
 
 function lua_e029_03()
+	player.play("idle")
 	bitflag.bitOn(029)
 end
 
 
 --first_2
---wsceneMgr.sCurScenePath = "Scene/Level_First_2.xml";
 
 function lua_e031()
 	if (gotTheKey == false) then
-		FlxControl.stop()
+        FlxControl.stop();
+        player.velocity.x = 0;
+        player.velocity.y = 0;
+        player.acceleration.x = 0;
+        player.acceleration.y = 0;
 		player.ftDialog.text = "I need to get the key to escape."
 		TweenLite.delayedCall(2, function_clear_player_dlg);
 		return;
@@ -549,7 +630,11 @@ function lua_e032()
 		return;
 	end
 
-	FlxControl.stop();
+    FlxControl.stop();
+    player.velocity.x = 0;
+    player.velocity.y = 0;
+    player.acceleration.x = 0;
+    player.acceleration.y = 0;
 	player.play("down");
 	TweenLite.delayedCall(2, lua_e032_01)
 end
@@ -569,7 +654,7 @@ end
 
 function lua_e032_03()
 	player.play("idle")
-	player.ftDialog.text = "OK, I got the key, let's move out."
+	player.ftDialog.text = "OK, I got the key from the corpse, let's move out."
 	TweenLite.delayedCall(2, lua_e032_04)
 end
 
@@ -591,6 +676,10 @@ function function_mad_player_001(onComplete)
 	madComplete = onComplete;
 
     FlxControl.stop();
+    player.velocity.x = 0;
+    player.velocity.y = 0;
+    player.acceleration.x = 0;
+    player.acceleration.y = 0;
     -- play anim
     player.ftDialog.text = "This..."
 

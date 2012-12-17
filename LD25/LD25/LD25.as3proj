@@ -40,7 +40,7 @@
     <option linkReport="" />
     <option loadExterns="" />
     <option staticLinkRSL="True" />
-    <option additional="-use-network=false" />
+    <option additional="-use-network=true" />
     <option compilerConstants="" />
     <option minorVersion="" />
   </build>

@@ -1,4 +1,4 @@
-﻿local Tweenlite = as3.class.com.greensock.TweenLite;
+local Tweenlite = as3.class.com.greensock.TweenLite;
 local FlxControl = as3.class.org.flixel.plugin.photonstorm.FlxControl;
 
 local LEFT_CLICK  = "Left_Click";
@@ -15,7 +15,7 @@ local table1 =
         action = RIGHT_PRESS,
         times = "0",
         counting = "2",
-        playerDialog = "",
+        playerDialog = "I hate skull!!",
         enemyDialog = ""
     },
     [2] =
@@ -23,7 +23,7 @@ local table1 =
         action = MOUSE_MOVE,
         times = "10",
         counting = "5",
-        playerDialog = "",
+        playerDialog = "No!",
         enemyDialog = ""
 	},
     [3] = 
@@ -118,8 +118,8 @@ local tableFinal =
     [2] =
     {
         action = MOUSE_MOVE,
-        times = "20",
-        counting = "5",
+        times = "5",
+        counting = "3",
         playerDialog = "I didn't kill the kid...",
         enemyDialog = ""
     },

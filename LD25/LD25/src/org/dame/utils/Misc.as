@@ -56,17 +56,24 @@
 			if ( relativePath )
 			{
 				// Relative to data dir but needs to be relative to bin dir.
-				if ( Capabilities.playerType == "PlugIn" )
-				{
+				//if ( Capabilities.playerType == "PlugIn" )
+				//{
 					//filename = "http://localhost/dambotsNew/games/Dame Samples/data/" + filename;
                     //FIXME remember to add security policy and change this
-					filename = "http://dambots.com/games/Dame Samples/assets/" + filename;
-				}
-				else
-				{
-					filename = "../assets/" + filename;
-				}
+					//filename = "http://kgs0142.sg1006.myweb.hinet.net/www/Ludum_Dare/LD25/assets/" + filename;
+				//}
+				//else
+				//{
+					//filename = "../assets/" + filename;
+				//}
+                
+                //filename = (CONFIG::release) ?
+                //"http://kgs0142.sg1006.myweb.hinet.net/www/Ludum_Dare/LD25/assets/" + filename :
+                //"../assets/" + filename;
+                
+                filename = "../assets/" + filename;
 			}
+            
 			return filename.replace(pattern, "/" );
 		}
 		

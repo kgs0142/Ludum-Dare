@@ -21,7 +21,7 @@
 		</shape>
 	</layer>
 	<layer name="others" xScroll="1.000" yScroll="1.000" >
-		<sprite class="CIAObject" name="Key" x="344.00" y="91.00" angle="0.00" flip="false" xScale="1.00" yScale="1.00" />
+		<sprite class="CDiary" name="Key" x="344.00" y="91.00" angle="0.00" flip="false" xScale="1.00" yScale="1.00" />
 		<sprite class="CDoor" name="Door" x="569.00" y="74.00" angle="0.00" flip="false" xScale="1.00" yScale="1.00" />
 		<sprite class="CDeadGuy" name="DeadGuy" x="357.00" y="84.00" angle="0.00" flip="false" xScale="1.00" yScale="1.00" />
 	</layer>

@@ -2,21 +2,61 @@
 <project>
   <version>3.1.0</version>
   <bgColor>0x000000</bgColor>
-  <viewPos x="-288.2934322033898" y="-26.599999999999994"/>
+  <viewPos x="-242.47563559322032" y="-609.1"/>
   <firstLayersTop>true</firstLayersTop>
-  <spriteEntries currentId="12">
+  <spriteEntries currentId="13">
     <tileEntry name="Player" idx="1" className="CPlayer" image="../assets/Player.PNG" offsetX="0" offsetY="0" width="16" height="20" anchorX="0" anchorY="0" centerAnchor="false" boundsX="0" boundsY="0" boundsWidth="16" boundsHeight="20" constructor="" creation="" exports="true" canScale="true" canRotate="true" surfaceObject="false" lockRotation="false"/>
     <tileEntry name="Enemy" idx="2" className="CEnemy" image="../assets/Enemy.png" offsetX="0" offsetY="0" width="16" height="20" anchorX="0" anchorY="0" centerAnchor="false" boundsX="0" boundsY="0" boundsWidth="16" boundsHeight="20" constructor="" creation="" exports="true" canScale="true" canRotate="true" surfaceObject="false" lockRotation="false"/>
     <tileEntry name="Door" idx="3" className="CDoor" image="../assets/Door.png" offsetX="0" offsetY="0" width="32" height="32" anchorX="0" anchorY="0" centerAnchor="false" boundsX="0" boundsY="0" boundsWidth="32" boundsHeight="32" constructor="" creation="" exports="true" canScale="true" canRotate="true" surfaceObject="false" lockRotation="false"/>
-    <tileEntry name="DeadGuy" idx="4" className="CDeadGuy" image="../assets/DeadGuy.PNG" offsetX="0" offsetY="0" width="16" height="20" anchorX="0" anchorY="0" centerAnchor="false" boundsX="0" boundsY="0" boundsWidth="16" boundsHeight="20" constructor="" creation="" exports="true" canScale="true" canRotate="true" surfaceObject="false" lockRotation="false" selected="true"/>
+    <tileEntry name="DeadGuy" idx="4" className="CDeadGuy" image="../assets/DeadGuy.PNG" offsetX="0" offsetY="0" width="16" height="20" anchorX="0" anchorY="0" centerAnchor="false" boundsX="0" boundsY="0" boundsWidth="16" boundsHeight="20" constructor="" creation="" exports="true" canScale="true" canRotate="true" surfaceObject="false" lockRotation="false"/>
     <tileEntry name="FishPic" idx="5" className="CFishPic" image="../assets/FishPic.PNG" offsetX="0" offsetY="0" width="16" height="16" anchorX="0" anchorY="0" centerAnchor="false" boundsX="0" boundsY="0" boundsWidth="16" boundsHeight="16" constructor="" creation="" exports="true" canScale="true" canRotate="true" surfaceObject="false" lockRotation="false"/>
     <tileEntry name="TV" idx="6" className="CTv" image="../assets/TV.png" offsetX="0" offsetY="0" width="32" height="32" anchorX="0" anchorY="0" centerAnchor="false" boundsX="0" boundsY="0" boundsWidth="32" boundsHeight="32" constructor="" creation="" exports="true" canScale="true" canRotate="true" surfaceObject="false" lockRotation="false"/>
     <sprite name="HangerBig" idx="7" className="CHangerBig" image="../assets/Hanger-BIG.png" width="16" height="25" preview="0" anchorX="0" anchorY="0" centerAnchor="false" boundsX="0" boundsY="0" boundsWidth="16" boundsHeight="25" constructor="" creation="" exports="true" canScale="true" canRotate="true" surfaceObject="false" tileIndex="-1" canEditFrames="true" lockRotation="false"/>
     <sprite name="HangerSmall" idx="8" className="CHangerSmall" image="../assets/Hanger-Small.PNG" width="16" height="25" preview="0" anchorX="0" anchorY="0" centerAnchor="false" boundsX="0" boundsY="0" boundsWidth="16" boundsHeight="25" constructor="" creation="" exports="true" canScale="true" canRotate="true" surfaceObject="false" tileIndex="-1" canEditFrames="true" lockRotation="false"/>
     <tileEntry name="OuterDoor" idx="9" className="COuterDoor" image="../assets/OuterDoor.PNG" offsetX="0" offsetY="0" width="48" height="48" anchorX="0" anchorY="0" centerAnchor="false" boundsX="0" boundsY="0" boundsWidth="48" boundsHeight="48" constructor="" creation="" exports="true" canScale="true" canRotate="true" surfaceObject="false" lockRotation="false"/>
     <tileEntry name="Diary" idx="10" className="CDiary" image="../assets/Diary.png" offsetX="0" offsetY="0" width="16" height="16" anchorX="0" anchorY="0" centerAnchor="false" boundsX="0" boundsY="0" boundsWidth="16" boundsHeight="16" constructor="" creation="" exports="true" canScale="true" canRotate="true" surfaceObject="false" lockRotation="false"/>
+    <tileEntry name="Key" idx="12" className="CIAObject" image="../assets/Diary.png" offsetX="0" offsetY="0" width="16" height="16" anchorX="0" anchorY="0" centerAnchor="false" boundsX="0" boundsY="0" boundsWidth="16" boundsHeight="16" constructor="" creation="" exports="true" canScale="true" canRotate="true" surfaceObject="false" lockRotation="false" selected="true"/>
   </spriteEntries>
   <layers>
+    <group name="First_2" id="148" xScroll="1" yScroll="1" visible="true" open="false" locked="false" exports="true">
+      <spritelayer name="sprites" id="149" xScroll="1" yScroll="1" visible="true" locked="false" exports="true" aligned="false" sort="false">
+        <sprite guid="2D60FA9D-05B4-4486-0881-7F3A833F1A65" x="538" y="81" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="1"/>
+      </spritelayer>
+      <spritelayer name="others" id="153" xScroll="1" yScroll="1" visible="true" locked="false" exports="true" aligned="false" sort="false">
+        <sprite guid="1CA7B382-E2C9-0B8F-1B37-D1AC7606DA9D" x="344" y="91" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="12"/>
+        <sprite guid="5C8BCE0B-0841-FD93-B6D8-72ED4FE061CD" x="569" y="74" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="3"/>
+        <sprite guid="F8E0D7BB-EFD6-0CF1-E77F-A2993B5AD6BE" x="357" y="84" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="4"/>
+      </spritelayer>
+      <shapelayer name="trigger" id="150" xScroll="1" yScroll="1" visible="true" locked="false" exports="true" aligned="false" sort="false">
+        <shape guid="3BB7EBEF-FAA1-2498-1E1F-1E3FCF3C774C" type="square" x="567" y="67" Z="0" angle="0" width="29.12" height="35.45" scaleX="0.582" scaleY="0.709">
+          <properties>
+            <type typeof="String" name="event" value="e031" hidden="false"/>
+            <type typeof="Boolean" name="once" value="false" hidden="false"/>
+            <type typeof="Boolean" name="waitInput" value="true" hidden="false"/>
+          </properties>
+        </shape>
+        <shape guid="0F125356-2448-5F97-E62E-41009578B867" type="square" x="342" y="72" Z="0" angle="0" width="33.33" height="33.33" scaleX="0.667" scaleY="0.667">
+          <properties>
+            <type typeof="String" name="event" value="e032" hidden="false"/>
+          </properties>
+        </shape>
+      </shapelayer>
+      <maplayer name="Map3" id="151" xScroll="1" yScroll="1" x="320" y="0" width="20" height="10" tileset="../assets/TileSet003.png" tileWidth="16" tileHeight="16" visible="true" hasHits="true" drawIdx="1" collideIdx="1" eraseIdx="0" locked="false" exports="true" tileSpacingX="16" tileSpacingY="16" xStagger="0" tileOffsetX="0" tileOffsetY="0" isMaster="false" mapType="2d" hasHeight="false" repeatX="false" repeatY="false">
+        <row>9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9</row>
+        <row>9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9</row>
+        <row>9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9</row>
+        <row>9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9</row>
+        <row>9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9</row>
+        <row>9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9</row>
+        <row>8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8</row>
+        <row>5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5</row>
+        <row>5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5</row>
+        <row>5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5</row>
+      </maplayer>
+      <maplayer name="bg" id="152" xScroll="1" yScroll="1" x="320" y="0" width="2" height="1" tileset="../assets/Hallway_2bg.PNG" tileWidth="160" tileHeight="160" visible="true" hasHits="false" drawIdx="1" collideIdx="1" eraseIdx="0" locked="false" exports="true" tileSpacingX="160" tileSpacingY="160" xStagger="0" tileOffsetX="0" tileOffsetY="0" isMaster="false" mapType="2d" hasHeight="false" repeatX="false" repeatY="false">
+        <row>2,3</row>
+      </maplayer>
+    </group>
     <group name="OutRoom_2" id="87" xScroll="1" yScroll="1" visible="true" open="true" locked="false" exports="true">
       <spritelayer name="others" id="92" xScroll="1" yScroll="1" visible="true" locked="false" exports="true" aligned="false" sort="false">
         <sprite guid="618B0FF3-F2C8-CC03-C4C6-9B7CF8B0DC91" x="597" y="229" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="3"/>
@@ -26,7 +66,7 @@
       <spritelayer name="sprites" id="88" xScroll="1" yScroll="1" visible="true" locked="false" exports="true" aligned="false" sort="false">
         <sprite guid="88ADEBF0-604D-8E95-1877-9332EB4A86C6" x="573" y="242" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="1"/>
       </spritelayer>
-      <shapelayer name="trigger" id="89" xScroll="1" yScroll="1" visible="true" locked="false" exports="true" aligned="false" sort="false" selected="true">
+      <shapelayer name="trigger" id="89" xScroll="1" yScroll="1" visible="true" locked="false" exports="true" aligned="false" sort="false">
         <properties>
           <type typeof="String" name="event" value="e029" hidden="false"/>
         </properties>
@@ -51,12 +91,12 @@
         </shape>
       </shapelayer>
       <maplayer name="Main" id="90" xScroll="1" yScroll="1" x="320" y="160" width="20" height="10" tileset="../assets/TileSet003.png" tileWidth="16" tileHeight="16" visible="true" hasHits="true" drawIdx="1" collideIdx="1" eraseIdx="0" locked="false" exports="true" tileSpacingX="16" tileSpacingY="16" xStagger="0" tileOffsetX="0" tileOffsetY="0" isMaster="false" mapType="2d" hasHeight="false" repeatX="false" repeatY="false">
-        <row>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</row>
-        <row>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</row>
-        <row>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</row>
-        <row>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</row>
-        <row>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</row>
-        <row>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</row>
+        <row>9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9</row>
+        <row>9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9</row>
+        <row>9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9</row>
+        <row>9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9</row>
+        <row>9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9</row>
+        <row>9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9</row>
         <row>7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7</row>
         <row>5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5</row>
         <row>5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5</row>
@@ -75,7 +115,7 @@
         <row>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</row>
       </maplayer>
     </group>
-    <group name="OutKitchen_2" id="97" xScroll="1" yScroll="1" visible="true" open="true" locked="false" exports="true">
+    <group name="OutKitchen_2" id="97" xScroll="1" yScroll="1" visible="true" open="false" locked="false" exports="true">
       <spritelayer name="sprites" id="98" xScroll="1" yScroll="1" visible="true" locked="false" exports="true" aligned="false" sort="false">
         <sprite guid="FF064D23-66D2-87EE-6F7B-7E4106F3A316" x="593" y="403" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="1"/>
       </spritelayer>
@@ -88,6 +128,11 @@
           </properties>
         </sprite>
         <sprite guid="C608A010-D140-FF41-51DA-5E13901998D4" x="338" y="392" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="3"/>
+        <sprite guid="4BECD60B-9AB1-7F43-3014-6DDAF8F08E3C" x="433" y="375" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="5">
+          <properties>
+            <type typeof="String" name="animLabel" value="die" hidden="false"/>
+          </properties>
+        </sprite>
       </spritelayer>
       <shapelayer name="trigger" id="99" xScroll="1" yScroll="1" visible="true" locked="false" exports="true" aligned="false" sort="false">
         <shape guid="C5D8FB86-B89C-7BB0-8300-6D6539D323DC" type="square" x="617" y="380" Z="0" angle="0" width="23.77" height="50.00" scaleX="0.475" scaleY="1.000">
@@ -137,7 +182,7 @@
         <row>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</row>
       </maplayer>
     </group>
-    <group name="HallWay_2" id="177" xScroll="1" yScroll="1" visible="true" open="false" locked="false" exports="true">
+    <group name="HallWay_2" id="177" xScroll="1" yScroll="1" visible="true" open="true" locked="false" exports="true">
       <spritelayer name="sprites" id="0" xScroll="1" yScroll="1" visible="true" locked="false" exports="true" aligned="false" sort="false">
         <sprite guid="EDFD4178-A2E5-533F-4368-3CE68D619A15" x="604" y="884" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="1"/>
       </spritelayer>
@@ -158,13 +203,13 @@
         </shape>
         <shape guid="BFB30CE2-AB2B-90F2-2A0B-FE1972DC608F" type="square" x="-403" y="952" Z="0" angle="0" width="50.00" height="50.00" scaleX="1.000" scaleY="1.000"/>
       </shapelayer>
-      <maplayer name="Main" id="2" xScroll="1" yScroll="1" x="320" y="800" width="20" height="10" tileset="../assets/TileSet003.png" tileWidth="16" tileHeight="16" visible="true" hasHits="true" drawIdx="1" collideIdx="1" eraseIdx="0" locked="false" exports="true" tileSpacingX="16" tileSpacingY="16" xStagger="0" tileOffsetX="0" tileOffsetY="0" isMaster="false" mapType="2d" hasHeight="false" repeatX="false" repeatY="false">
-        <row>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</row>
-        <row>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</row>
-        <row>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</row>
-        <row>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</row>
-        <row>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</row>
-        <row>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</row>
+      <maplayer name="Main" id="2" xScroll="1" yScroll="1" x="320" y="800" width="20" height="10" tileset="../assets/TileSet003.png" tileWidth="16" tileHeight="16" visible="true" hasHits="true" drawIdx="1" collideIdx="1" eraseIdx="0" locked="false" exports="true" tileSpacingX="16" tileSpacingY="16" xStagger="0" tileOffsetX="0" tileOffsetY="0" isMaster="false" mapType="2d" hasHeight="false" repeatX="false" repeatY="false" selected="true">
+        <row>9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9</row>
+        <row>9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9</row>
+        <row>9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9</row>
+        <row>9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9</row>
+        <row>9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9</row>
+        <row>9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9</row>
         <row>8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8</row>
         <row>5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5</row>
         <row>5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5</row>
@@ -430,11 +475,16 @@
         <sprite guid="0BE7B5C7-4048-C9FA-B771-71FFB1CA0E10" x="16" y="390" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="3"/>
         <sprite guid="503AC136-71C4-4152-6732-DF77F28DC4B7" x="217" y="391" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="3"/>
         <sprite guid="DD4EDF30-C759-2806-C9D6-B5A29A631F2A" x="302" y="390" Z="0" angle="0" scaleX="1.45" scaleY="1" flipped="false" idx="3"/>
+        <sprite guid="BDD7CA6D-3C6B-3828-C99D-BF02E3B98644" x="127" y="383" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="5">
+          <properties>
+            <type typeof="String" name="guid" value="BDD7CA6D-3C6B-3828-C99D-BF02E3B98644" hidden="false"/>
+          </properties>
+        </sprite>
       </spritelayer>
       <shapelayer name="trigger" id="29" xScroll="1" yScroll="1" visible="true" locked="false" exports="true" aligned="false" sort="false">
-        <shape guid="C75567B2-60D5-210A-4BCC-A0726DDB2C44" type="square" x="70" y="399" Z="0" angle="0" width="20.83" height="21.41" scaleX="0.417" scaleY="0.428">
+        <shape guid="C75567B2-60D5-210A-4BCC-A0726DDB2C44" type="square" x="75" y="398" Z="0" angle="0" width="20.83" height="21.41" scaleX="0.417" scaleY="0.428">
           <properties>
-            <type typeof="String" name="target" value="F17B8077-1838-D867-0774-50E9748DDC5A" hidden="false"/>
+            <type typeof="String" name="target" value="BDD7CA6D-3C6B-3828-C99D-BF02E3B98644" hidden="false"/>
             <type typeof="String" name="event" value="e009" hidden="false"/>
           </properties>
         </shape>
