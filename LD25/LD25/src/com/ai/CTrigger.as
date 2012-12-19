@@ -81,6 +81,8 @@
             
             if (m_bLockOverlap)
             {
+                TweenLite.killTweensOf(m_ftDialog);
+                m_ftDialog.alpha = 0;
                 return;
             }
             
