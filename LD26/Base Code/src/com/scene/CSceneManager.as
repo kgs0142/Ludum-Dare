@@ -1,10 +1,5 @@
 package com.scene 
 {
-    import com.ai.CDiary;
-    import com.ai.CDoor;
-    import com.ai.CEnemy;
-    import com.ai.COuterDoor;
-    import com.ai.CPlayer;
     import com.brompton.component.system.BPLoader;
     import com.brompton.system.CEntitySystem;
     import com.scene.struct.CBoxData;
@@ -273,11 +268,11 @@ package com.scene
             m_gOthersLayer = null;
             
             //Add all the class will create during the processing.
-            CDoor;
-            COuterDoor;
-            CEnemy;
-            CPlayer;
-            CDiary;
+            //CDoor;
+            //COuterDoor;
+            //CEnemy;
+            //CPlayer;
+            //CDiary;
         }
         
         public override function destroy() : void   
