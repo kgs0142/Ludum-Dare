@@ -32,6 +32,9 @@ package com.game.state
             //m_gDoor.add(new CFlxMySprite(DOOR_BOARD_PIC, "door_board", 0));
             //m_gDoor.add(new CFlxMySprite(DOOR_HANDLE_PIC, "door_handle", 1));
             //m_gPuzzleObjects.add(m_gDoor);
+            var bed:CFlxMyGroup = new CFlxMyGroup(20, 103);
+            bed.add(new CFlxMySprite(BED_PIC, "bed", 0));
+            m_gPuzzleObjects.add(bed);
             
             m_sprPlayer = new CPlayer(50, 110);
             m_sprPlayer.maxVelocity = new FlxPoint(0, 0);

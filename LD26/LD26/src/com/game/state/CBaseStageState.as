@@ -120,6 +120,9 @@ package com.game.state
         
         [Embed(source="../../../../assets/Prisoner.png")]
         protected const PRISONER_PIC:Class;
+
+        [Embed(source="../../../../assets/Bed.png")]
+        protected const BED_PIC:Class;
         
         protected var m_sStageName:String;
         

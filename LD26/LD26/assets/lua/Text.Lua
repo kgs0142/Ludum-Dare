@@ -69,13 +69,13 @@ end
 function Stage3_Text1()
     uiMgr.ClearText();
     uiMgr.ShowText("\n\n\n  ''It's tired to keep finding where she is.''", 
-                    true, 0.25, 1.0, 1.0, 1.5, nil, Stage3_Prologue_ShowUI_Callback);
+                    true, 0.25, 1.0, 1.0, 1.5, nil, Stage3_Text2);
 end
 
 function Stage3_Text2()
     uiMgr.ClearText();
     uiMgr.ShowText("\n\n\n  ''I am angry about her.''", 
-                    true, 0.25, 1.0, 1.0, 1.5, nil, Stage3_Prologue_ShowUI_Callback);
+                    false, 0.25, 1.0, 1.0, 1.5, nil, Stage3_Prologue_ShowUI_Callback);
 end
 
 function Stage3_Prologue_ShowUI_Callback()
