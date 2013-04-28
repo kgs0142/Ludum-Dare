@@ -69,7 +69,7 @@ package com.game.module
             
             var sprBevel:SprBevelScreen = new SprBevelScreen();
             sprBevel.Create();
-            //gSpr.add(sprBevel);
+            gSpr.add(sprBevel);
             
             this.add(gSpr);
             this.add(gUI);
