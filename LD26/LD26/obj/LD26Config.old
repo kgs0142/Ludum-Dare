@@ -43,6 +43,7 @@
     <library-path append="true">
       <path-element>E:\Project\Ludum Dare\Project\LD26\LD26\lib\Brompton.swc</path-element>
       <path-element>E:\Project\Ludum Dare\Project\LD26\LD26\lib\Audio.swc</path-element>
+      <path-element>E:\Project\Ludum Dare\Project\LD26\LD26\lib\greensock.swc</path-element>
     </library-path>
   </compiler>
   <file-specs>
