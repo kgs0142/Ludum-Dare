@@ -169,7 +169,7 @@ end
 function Ending_Prologue()
     uiMgr.ClearText();
     uiMgr.ShowText("\n\n\n                    ''I am so lonly...''", 
-                   true, 0.5, 2.5, 0.5, 0.5, nil, Ending_Text1);
+                   true, 0.5, 2.5, 2.5, 5.5, nil, Ending_Text1);
 end
 
 function Ending_Text1()
