@@ -4,7 +4,7 @@
   <output>
     <movie outputType="Application" />
     <movie input="" />
-    <movie path="bin\Pieces.swf" />
+    <movie path="bin\Pieces_PostCombo.swf" />
     <movie fps="30" />
     <movie width="624" />
     <movie height="384" />
@@ -22,7 +22,6 @@
   <!-- Build options -->
   <build>
     <option accessible="False" />
-    <option advancedTelemetry="False" />
     <option allowSourcePathOverlap="False" />
     <option benchmark="False" />
     <option es="False" />

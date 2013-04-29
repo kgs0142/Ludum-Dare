@@ -169,3 +169,151 @@ function Lua_Stage5_ClickTheDoor(firstItem, secondItem, bCanTakeIt, sClickMouse)
 	print("PASS!");
 	this.SetStageClear(true);
 end
+
+--POST COMPO
+----------------------------------------------------------------------------------------
+local bStage6Lock1 = false
+function Lua_Stage6_CombineTwoItem(firstItem, secondItem, bCanTakeIt, sClickMouse)
+	--combine on the door
+	Lua_Common_CombineTwoItem(firstItem, secondItem, sClickMouse)
+
+	if (bStage6Lock1 == false and
+		(as3.tolua(firstItem.HasOnlyTheseChild("key")) == true or
+		 as3.tolua(secondItem.HasOnlyTheseChild("key"))) == true) then
+		bStage6Lock1 = true;
+		Stage6_Text2();
+	end
+end
+
+function Lua_Stage6_ClickTheDoor(firstItem, secondItem, bCanTakeIt, sClickMouse)
+	if (firstItem == nil or 
+	 	as3.tolua(firstItem.HasOnlyTheseChild("key")) == false) then
+		return;
+	end
+
+	if (secondItem == nil or 
+		as3.tolua(secondItem.HasOnlyTheseChild("door_handle", "door_board")) == false) then
+		return;
+	end	
+
+	print("PASS!");
+	this.SetStageClear(true);
+end
+
+----------------------------------------------------------------------------------------
+function Lua_Stage7_CombineTwoItem(firstItem, secondItem, bCanTakeIt, sClickMouse)
+	--combine on the door
+	Lua_Common_CombineTwoItem(firstItem, secondItem, sClickMouse)
+end
+
+function Lua_Stage7_ClickTheDoor(firstItem, secondItem, bCanTakeIt, sClickMouse)
+
+	if ((firstItem ~= null and
+		 as3.tolua(firstItem.HasOnlyTheseChild("key")) == true) and
+		(secondItem ~= null and
+		 as3.tolua(secondItem.HasOnlyTheseChild("door_handle", "door_board")) == true)) then
+	
+		print("PASS!");
+		this.SetStageClear(true);
+		return;
+	end
+
+	--else do the combine
+	Lua_Stage7_CombineTwoItem(firstItem, secondItem, bCanTakeIt, sClickMouse)
+
+end
+
+----------------------------------------------------------------------------------------
+
+function Lua_Stage8_CombineTwoItem(firstItem, secondItem, bCanTakeIt, sClickMouse)
+	--combine on the door
+	Lua_Common_CombineTwoItem(firstItem, secondItem, sClickMouse)
+end
+
+function Lua_Stage8_ClickTheDoor(firstItem, secondItem, bCanTakeIt, sClickMouse)
+
+	if (firstItem == nil or 
+	 	as3.tolua(firstItem.HasOnlyTheseChild("clock_board", "ten_thirty")) == false) then
+		return;
+	end
+
+	if (secondItem == nil or 
+		as3.tolua(secondItem.HasOnlyTheseChild("door_handle", "door_board", "door_clock")) == false) then
+		return;
+	end	
+
+	print("PASS!");
+	this.SetStageClear(true);
+
+end
+
+----------------------------------------------------------------------------------------
+
+function Lua_Stage9_CombineTwoItem(firstItem, secondItem, bCanTakeIt, sClickMouse)
+	--combine on the door
+	Lua_Common_CombineTwoItem(firstItem, secondItem, sClickMouse)
+end
+
+function Lua_Stage9_ClickTheDoor(firstItem, secondItem, bCanTakeIt, sClickMouse)
+
+	if (firstItem == nil or 
+	 	as3.tolua(firstItem.HasOnlyTheseChild("cat_head", "cat_body")) == false) then
+		return;
+	end
+
+	if (secondItem == nil or 
+		as3.tolua(secondItem.HasOnlyTheseChild("door_handle", "door_board", "door_clock")) == false) then
+		return;
+	end	
+
+	print("PASS!");
+	this.SetStageClear(true);
+
+end
+
+----------------------------------------------------------------------------------------
+
+function Lua_Stage10_CombineTwoItem(firstItem, secondItem, bCanTakeIt, sClickMouse)
+	--combine on the door
+	Lua_Common_CombineTwoItem(firstItem, secondItem, sClickMouse)
+end
+
+function Lua_Stage10_ClickTheDoor(firstItem, secondItem, bCanTakeIt, sClickMouse)
+
+	if (firstItem == nil or 
+	 	as3.tolua(firstItem.HasOnlyTheseChild("door_handle")) == false) then
+		return;
+	end
+
+	if (secondItem == nil or 
+		as3.tolua(secondItem.HasOnlyTheseChild("door_board_dotted_line_pic", "door_board")) == false) then
+		return;
+	end	
+
+	print("PASS!");
+	this.SetStageClear(true);
+
+end
+----------------------------------------------------------------------------------------
+
+function Lua_Stage11_CombineTwoItem(firstItem, secondItem, bCanTakeIt, sClickMouse)
+	--combine on the door
+	Lua_Common_CombineTwoItem(firstItem, secondItem, sClickMouse)
+end
+
+function Lua_Stage11_ClickTheDoor(firstItem, secondItem, bCanTakeIt, sClickMouse)
+
+	if (firstItem == nil or 
+	 	as3.tolua(firstItem.HasOnlyTheseChild("door_board", "door_handle")) == false) then
+		return;
+	end
+
+	if (secondItem == nil or 
+		as3.tolua(secondItem.HasOnlyTheseChild("door_board_dotted_line_pic")) == false) then
+		return;
+	end	
+
+	print("PASS!");
+	this.SetStageClear(true);
+
+end

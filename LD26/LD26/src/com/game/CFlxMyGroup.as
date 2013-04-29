@@ -1,11 +1,15 @@
 package com.game 
 {
+    import com.game.state.CBaseStageState;
+    import flash.display.BitmapData;
     import org.flixel.FlxBasic;
+    import org.flixel.FlxEmitter;
     import org.flixel.FlxG;
 	import org.flixel.FlxGroup;
     import org.flixel.FlxObject;
     import org.flixel.FlxPoint;
     import org.flixel.FlxSprite;
+    import org.flixel.plugin.photonstorm.FlxDelay;
 	
 	/**
      * Combine Flxsprite to a complex Flxsprite
@@ -57,6 +61,8 @@ package com.game
             m_nInitialY = y;
             
             offset = new FlxPoint();
+            
+            m_delayRemoveMouseOverEffect = new FlxDelay(0);
         }
         
         //update the order to render
@@ -103,6 +109,36 @@ package com.game
 				if((basic != null) && basic.exists && basic.visible)
 					basic.draw();
 			}
+        }
+        
+        public function CopyPixelsFromMembers() : BitmapData
+        {
+            var bd:BitmapData = new BitmapData(50, 50, true);
+            
+			var basic:FlxBasic;
+			var i:uint = 0;
+			while(i < length)
+			{
+				basic = members[i++] as FlxBasic;
+                
+                //--------------
+                var spr:FlxSprite = basic as FlxSprite;
+                if (spr != null)
+                {
+                    spr.x = this.x;
+                    spr.y = this.y;
+                }
+                //----------------
+                
+				if ((basic != null) && basic.exists && basic.visible && basic is FlxSprite)
+                {
+                    var bdSource:BitmapData = (basic as FlxSprite).framePixels;
+                    bd.draw(bdSource);
+					//basic.draw();
+                }
+			}
+            
+            return bd;
         }
         
         //Add:flxGroup1 add the differ parts of flxGroup2
@@ -185,9 +221,10 @@ package com.game
                 flxGroup1.add(spr);
             }
             
-            
             //Play Add snd
             FlxG.play(SndAdd);
+            
+            CUIManager.Get().PlayParticle(flxGroup1.x, flxGroup1.y, "+");
             
             return true;
         }
@@ -270,6 +307,8 @@ package com.game
             //Play sub snd
             FlxG.play(SndSub);
             
+            CUIManager.Get().PlayParticle(flxGroup1.x, flxGroup1.y, "-");
+            
             return true;
         }
         
@@ -348,5 +387,17 @@ package com.game
                 flxObject.flicker(Duration);
             }
 		}
+        
+        private var m_delayRemoveMouseOverEffect:FlxDelay;
+        public function DoMouseOverEffect() : void
+        {
+            m_delayRemoveMouseOverEffect.duration = 0.2;
+            m_delayRemoveMouseOverEffect.callback = function () : void
+            {
+                CUIManager.Get().RemoveMouseOverEffect();
+            }
+            
+            CUIManager.Get().ShowMouseOverEffect(this.x, this.y + 13);
+        }
     }
 }

@@ -50,7 +50,7 @@ end
 function Stage2_Text1()
     uiMgr.ClearText();
     uiMgr.ShowText("\n\n\n           ''My time was stop passing...''",
-                    true, 0.25, 1.0, 1.0, 1.5, nil, Stage2_Prologue_ShowUI_Callback);
+                    false, 0.25, 1.0, 1.0, 1.5, nil, nil);
 end
 
 function Stage2_Prologue_ShowUI_Callback()
@@ -75,7 +75,7 @@ end
 function Stage3_Text2()
     uiMgr.ClearText();
     uiMgr.ShowText("\n\n\n  ''I am angry about her.''", 
-                    false, 0.25, 1.0, 1.0, 1.5, nil, Stage3_Prologue_ShowUI_Callback);
+                    false, 0.25, 1.0, 1.0, 1.5, nil, nil);
 end
 
 function Stage3_Prologue_ShowUI_Callback()
@@ -177,3 +177,98 @@ function Ending_Text1()
     uiMgr.ShowText("\n\n\n\n\n\n\n\n                            ''Thanks for playing : ).''", 
                    false, 0.5, 2.5, 2.5, 5.5, nil, nil);
 end
+
+--POST COMPO
+----------------------------------------------------------------------------------------
+
+function Stage6_Prologue()
+    --this.SetStopUpdate(true);
+    --this.SetStopUpdate(false);
+    uiMgr.ClearText();
+    uiMgr.ShowText("\n\n\n  ''She loves cats and dogs.''",
+                     false, 0.25, 0.5, 0.5, 1.0, nil, Stage6_Text1);
+end
+
+function Stage6_Text1()
+    uiMgr.ClearText();
+    uiMgr.ShowText("\n\n\n  ''Where is the key?''",
+                     false, 0.25, 0.5, 0.5, 1.0, nil, nil);
+end
+
+function Stage6_Text2()
+    --this.SetStopUpdate(true);
+    --this.SetStopUpdate(false);
+    uiMgr.ClearText();
+    uiMgr.ShowText("\n\n\n  ''I hate animals.''",
+                     false, 0.25, 0.5, 0.5, 1.0, nil, nil);
+end
+
+----------------------------------------------------------------------------------------
+function Stage7_Prologue()
+    --this.SetStopUpdate(true);
+    --this.SetStopUpdate(false);
+    uiMgr.ClearText();
+    uiMgr.ShowText("\n\n\n  ''Life is always full of many obstacles.''",
+                     false, 0.25, 0.5, 0.5, 1.0, nil, Stage7_Prologue_ShowUI_Callback);
+end
+
+function Stage7_Prologue_ShowUI_Callback()
+    --this.SetStopUpdate(false);
+    this.AddMiddleMouseUITip(60, 30, 2.5);
+end
+
+----------------------------------------------------------------------------------------
+function Stage8_Prologue()
+    --this.SetStopUpdate(true);
+    --this.SetStopUpdate(false);
+    uiMgr.ClearText();
+    uiMgr.ShowText("\n\n\n  ''What time is it?''",
+                     false, 0.25, 0.5, 0.5, 1.0, nil, Stage8_Prologue_ShowUI_Callback);
+end
+
+function Stage8_Prologue_ShowUI_Callback()
+    --this.SetStopUpdate(false);
+    this.AddRightMouseUITip(30, 30, 2.5);
+end
+----------------------------------------------------------------------------------------
+function Stage9_Prologue()
+    --this.SetStopUpdate(true);
+    --this.SetStopUpdate(false);
+    uiMgr.ClearText();
+    uiMgr.ShowText("\n\n\n  ''I like paper cuts and tailor.''",
+                     false, 0.25, 0.5, 0.5, 1.0, nil, nil);
+end
+----------------------------------------------------------------------------------------
+function Stage10_Prologue()
+    --this.SetStopUpdate(true);
+    --this.SetStopUpdate(false);
+    uiMgr.ClearText();
+    uiMgr.ShowText("\n\n\n  ''I have hallucinations sometimes.''",
+                     true, 0.25, 0.5, 0.5, 1.5, nil, Stage10_Text1);
+end
+
+function Stage10_Text1()
+    --this.SetStopUpdate(true);
+    --this.SetStopUpdate(false);
+    uiMgr.ClearText();
+    uiMgr.ShowText("\n\n\n  ''I'm not sure what is the true.''",
+                     false, 0.25, 0.5, 0.5, 1.0, nil, nil);
+end
+
+----------------------------------------------------------------------------------------
+function Stage11_Prologue()
+    --this.SetStopUpdate(true);
+    --this.SetStopUpdate(false);
+    uiMgr.ClearText();
+    uiMgr.ShowText("\n\n\n  ''The body of spider look like her cloth.''",
+                     true, 0.25, 0.5, 0.5, 1.5, nil, Stage11_Text1);
+end
+
+function Stage11_Text1()
+    --this.SetStopUpdate(true);
+    --this.SetStopUpdate(false);
+    uiMgr.ClearText();
+    uiMgr.ShowText("\n\n\n  ''I hate spiders.''",
+                     false, 0.25, 2.5, 0.5, 1.5, nil, nil);
+end
+

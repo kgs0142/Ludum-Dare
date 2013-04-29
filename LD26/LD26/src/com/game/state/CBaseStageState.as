@@ -6,6 +6,7 @@ package com.game.state
     import com.brompton.entity.BPEntityManager;
     import com.brompton.system.CEntitySystem;
     import com.game.CFlxMyGroup;
+    import com.game.CUIManager;
     import com.greensock.TweenLite;
     import org.flixel.FlxBasic;
     import org.flixel.FlxButton;
@@ -26,7 +27,7 @@ package com.game.state
     public class CBaseStageState extends FlxState 
     {
         [Embed(source="../../../../assets/Player.png")]
-        protected const PLAYER_PIC:Class;
+        public static const PLAYER_PIC:Class;
         [Embed(source="../../../../assets/Cube.png")]
         protected const CUBE_PIC:Class;
         [Embed(source="../../../../assets/door/Door_Board_Dotted_Line.png")]
@@ -124,6 +125,24 @@ package com.game.state
         [Embed(source="../../../../assets/Bed.png")]
         protected const BED_PIC:Class;
         
+        [Embed(source="../../../../assets/DogHead.png")]
+        protected const DOG_HEAD:Class;
+        [Embed(source="../../../../assets/DogBody.png")]
+        protected const DOG_BODY:Class;
+        
+        [Embed(source="../../../../assets/Door_Hint_1030.png")]
+        protected const DOOR_HINT_1030_PIC:Class;
+        [Embed(source="../../../../assets/Door_Hint_Cat.png")]
+        protected const DOOR_HINT_CAT_PIC:Class;
+        
+        [Embed(source="../../../../assets/AlienComplete.png")]
+        protected const ALIEN_COMPLETE_PIC:Class;
+        [Embed(source="../../../../assets/AlienPart.png")]
+        protected const ALIEN_PART_PIC:Class;
+        [Embed(source="../../../../assets/SpiderHead.png")]
+        protected const SPIDER_HEAD_PIC:Class;
+        
+        
         protected var m_sStageName:String;
         
         protected var m_bPlayerIsMoving:Boolean;
@@ -146,6 +165,8 @@ package com.game.state
         //CFlxMyGroup Mouse click current
         protected var m_gMouseClickItem:CFlxMyGroup;
         
+        protected var m_gMouseOverItem:CFlxMyGroup;
+        
         protected var m_gPuzzleObjects:FlxGroup;
         
         private var m_bStageClear:Boolean;
@@ -163,6 +184,7 @@ package com.game.state
             m_gPuzzleBox = null;
             m_bStopUpdate = false;
             m_bStageClear = false;
+            m_gMouseOverItem = null;
             m_bPlayerIsMoving = false;
             m_gPlayerSelectItem = null;
             m_gMouseClickItem = null;
@@ -311,16 +333,22 @@ package com.game.state
             
             
             //-------------------------------------------------------------------
-            //If is Moving, don't do anything
+            //If is Moving, don't do Move event
             if (m_bPlayerIsMoving == true)
             {
+                //Clear the mouseover item?
+                CUIManager.Get().RemoveMouseOverEffect();
+                
                 return;
             }
             
             if ((FlxG.mouse.justPressed(Mouse.LEFT) || 
                  FlxG.mouse.justPressed(Mouse.RIGHT) ||
-                 FlxG.mouse.justPressed(Mouse.MIDDLE)))
+                 FlxG.mouse.justPressed(Mouse.MIDDLE) ||
+                 FlxG.keys.justPressed("Z")))
             {
+                CUIManager.Get().RemoveMouseOverEffect();
+                
                 //Move to Object
                 var pClick:FlxPoint = new FlxPoint(FlxG.mouse.x, FlxG.height);
                 var path:FlxPath = new FlxPath([pClick]);
@@ -338,10 +366,25 @@ package com.game.state
                     }
                     
                     m_gMouseClickItem = flxMyGroup;
-                    m_sClickMouse = (FlxG.mouse.justPressed(Mouse.LEFT)) ?
-                                     Mouse.LEFT : Mouse.RIGHT;
-                    m_sClickMouse = (FlxG.mouse.justPressed(Mouse.MIDDLE)) ?
-                                     Mouse.MIDDLE : m_sClickMouse;
+                    
+                    if (FlxG.mouse.justPressed(Mouse.LEFT))
+                    {
+                        m_sClickMouse = Mouse.LEFT;
+                    }
+                    else if (FlxG.mouse.justPressed(Mouse.RIGHT))
+                    {
+                        m_sClickMouse = Mouse.RIGHT;
+                    }
+                    else if ((FlxG.mouse.justPressed(Mouse.MIDDLE) ||
+                              FlxG.keys.justPressed("Z")))
+                    {
+                        m_sClickMouse = Mouse.MIDDLE;
+                    }
+                    //
+                    //m_sClickMouse = (FlxG.mouse.justPressed(Mouse.LEFT)) ?
+                                     //Mouse.LEFT : Mouse.RIGHT;
+                    //m_sClickMouse = (FlxG.mouse.justPressed(Mouse.MIDDLE)) ?
+                                     //Mouse.MIDDLE : m_sClickMouse;
                     break;
                 }
             }
@@ -360,12 +403,13 @@ package com.game.state
                 }
                 
                 var gMyGroup:CFlxMyGroup = flxBasic as CFlxMyGroup;
-                if (gMyGroup == null)
+                if (gMyGroup == null || gMyGroup.members.length == 0)
                 {
                     continue;
                 }
                 
-                gMyGroup.flicker(0.05);
+                gMyGroup.DoMouseOverEffect();
+                //gMyGroup.flicker(0.05);
             }
         }
         

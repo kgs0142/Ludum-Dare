@@ -96,7 +96,12 @@ package com.game.state
             
             if (this.IsUnderMouse(m_gDoor) == true)
             {
-                m_gDoor.flicker(0.05);
+                //m_gDoor.flicker(0.05);
+                m_gDoor.DoMouseOverEffect();
+            }
+            else
+            {
+                CUIManager.Get().RemoveMouseOverEffect();
             }
             
             if (FlxG.mouse.justPressed() == true)

@@ -73,7 +73,8 @@ package com.game.state
             FlxG.fade(0xFF000000, 1.0,
             function () : void
             {
-                FlxG.switchState(new CStage2());
+                //FlxG.switchState(new CStage2());
+                FlxG.switchState(new CStage6());
             });
         }
         

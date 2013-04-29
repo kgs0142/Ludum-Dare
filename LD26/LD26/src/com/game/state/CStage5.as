@@ -28,11 +28,11 @@ package com.game.state
             //var group:CFlxMyGroup = new CFlxMyGroup(50, 100);
             //m_gPuzzleObjects.add(group);
             
-            var group:CFlxMyGroup = new CFlxMyGroup(65, 105);
+            var group:CFlxMyGroup = new CFlxMyGroup(65, 100);
             group.add(new CFlxMySprite(HEART_CONTAINER, "heart_container", 2));
             m_gPuzzleObjects.add(group);
             
-            group = new CFlxMyGroup(100, 115);
+            group = new CFlxMyGroup(100, 100);
             group.add(new CFlxMySprite(HEART_PIECE_4, "heart_piece_4", 3));
             m_gPuzzleObjects.add(group);
             
@@ -40,11 +40,11 @@ package com.game.state
             group.add(new CFlxMySprite(HEART_PIECE_1, "heart_piece_1", 4));
             m_gPuzzleObjects.add(group);
             
-            group = new CFlxMyGroup(150, 115);
+            group = new CFlxMyGroup(150, 100);
             group.add(new CFlxMySprite(HEART_PIECE_3, "heart_Piece_3", 5));
             m_gPuzzleObjects.add(group);
             
-            group = new CFlxMyGroup(185, 115);
+            group = new CFlxMyGroup(185, 100);
             group.add(new CFlxMySprite(HEART_PIECE_2, "heart_piece_2", 6));
             m_gPuzzleObjects.add(group);
             

@@ -1,8 +1,10 @@
 package com.game 
 {
     import org.flixel.FlxBasic;
+    import org.flixel.FlxEmitter;
     import org.flixel.FlxG;
     import org.flixel.FlxGroup;
+    import org.flixel.FlxSprite;
     import org.flixel.FlxText;
     import org.flixel.plugin.photonstorm.FlxDelay;
 	
@@ -16,6 +18,14 @@ package com.game
         private static const DIALOG_Y:Number = 30.0;
         
         private static var ms_Instance:CUIManager;
+        
+        [Embed(source="../../../assets/Selected.png")]
+        private const MOUSE_OVER_PIC:Class;
+        
+        [Embed(source="../../../assets/Minus.png")]
+        private const MINUS_PIC:Class;
+        [Embed(source="../../../assets/Plus.png")]
+        private const PLUS_PIC:Class;
         
         private var m_tfDialog:FlxText;
         
@@ -32,6 +42,10 @@ package com.game
         private var m_fadeOut:FlxDelay;
         private var m_delayShow:FlxDelay;
         private var m_delayDuration:FlxDelay;
+        
+        private var m_sprMouseOverEffect:FlxSprite;
+        
+        private var m_emitter:FlxEmitter;
         
         public function ClearAllOtherChild() : void
         {
@@ -165,8 +179,16 @@ package com.game
             m_delayShow = new FlxDelay(0);
             m_delayDuration = new FlxDelay(0);
             m_tfDialog = new FlxText(DIALOG_X, DIALOG_Y, FlxG.width);
+            m_sprMouseOverEffect = new FlxSprite(0, 0, MOUSE_OVER_PIC);
+            
+            m_emitter = new FlxEmitter();
+			m_emitter.setXSpeed(-50, 50);
+			m_emitter.setYSpeed(-50, -30);
+			m_emitter.setRotation(0, 0);
+			m_emitter.gravity = 400;
             
             this.add(m_tfDialog);
+            this.add(m_emitter);
         }
         
         public static function Get() : CUIManager
@@ -189,6 +211,29 @@ package com.game
             {
                 throw "Dont new singleton";
             }
+        }
+        
+        public function PlayParticle(nX:Number, nY:Number, sType:String = "-") : void
+        {
+            var clz:Class = (sType == "-") ? MINUS_PIC : PLUS_PIC;
+            
+            m_emitter.x = nX;
+            m_emitter.y = nY;
+            m_emitter.clear();
+            m_emitter.makeParticles(clz, 1, 16, false, 0);
+            m_emitter.start();
+        }
+        
+        public function RemoveMouseOverEffect() : void
+        {
+            this.remove(m_sprMouseOverEffect);
+        }
+        
+        public function ShowMouseOverEffect(nX:Number, nY:Number) : void
+        {
+            m_sprMouseOverEffect.x = nX;
+            m_sprMouseOverEffect.y = nY;
+            this.add(m_sprMouseOverEffect);
         }
     }
 }
