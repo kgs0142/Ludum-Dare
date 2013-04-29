@@ -31,7 +31,7 @@ package com.game.state
             m_gPuzzleBox = new CFlxMyGroup(50 , 100);
             //m_gPuzzleBox.add(new CFlxMySprite(TWELVE_FIFTEEN_PIC, "tweleve_fifteen", 6));
             m_gPuzzleBox.add(new CFlxMySprite(CLOCK_COVER_PIC, "clock_cover", 10));
-            m_gPuzzleBox.add(new CFlxMySprite(WRONG_NEEDLE_1_PIC, "wrong_needle1", 11));
+            m_gPuzzleBox.add(new CFlxMySprite(WRONG_NEEDLE_1_PIC, "wrong_needle1", 9));
             m_gPuzzleBox.add(new CFlxMySprite(CLOCK_BOARD_PIC, "clock_board", 4));
             m_gPuzzleObjects.add(m_gPuzzleBox);
             
