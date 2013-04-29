@@ -202,6 +202,9 @@ package com.game.state
             m_gWallAndFloor.add(new FlxTileblock(0, FlxG.height - 5, FlxG.width, 10));
             this.add(m_gWallAndFloor);
             
+            //Clear mouse over
+            CUIManager.Get().RemoveMouseOverEffect();
+            
             CONFIG::debug
             {
                 this.add(new FlxButton(0, 0, "Reload Lua",function () : void
@@ -265,6 +268,9 @@ package com.game.state
                 m_sprPlayer.path.nodes[0].x <= m_sprPlayer.x + m_sprPlayer.width))
             {
                 m_bPlayerIsMoving = false;
+                
+                //Clear the mouseover item?
+                CUIManager.Get().RemoveMouseOverEffect();
                 
                 //If Player is overlap group(item) and cannot take it, executing callback
                 //IT CAN ONLY BE THE DOOR
