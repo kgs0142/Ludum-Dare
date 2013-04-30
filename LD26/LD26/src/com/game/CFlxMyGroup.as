@@ -352,7 +352,8 @@ package com.game
         {
             for each (var flxMySpr:CFlxMySprite in this.members)
             {
-                if (flxMySpr.sName == sMemberName)
+                if (flxMySpr != null &&
+                    flxMySpr.sName == sMemberName)
                 {
                     return true;
                 }

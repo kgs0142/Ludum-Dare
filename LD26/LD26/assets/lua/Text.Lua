@@ -251,7 +251,7 @@ function Stage10_Text1()
     --this.SetStopUpdate(true);
     --this.SetStopUpdate(false);
     uiMgr.ClearText();
-    uiMgr.ShowText("\n\n\n  ''I'm not sure what is the true.''",
+    uiMgr.ShowText("\n\n\n  ''I'm not sure what is true.''",
                      false, 0.25, 0.5, 0.5, 1.0, nil, nil);
 end
 

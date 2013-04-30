@@ -5,55 +5,70 @@ package com.game.state
     import com.game.CFlxMySprite;
     import com.game.CUIManager;
     import org.flixel.FlxG;
-    import org.flixel.system.input.Mouse;
+    
 	/**
      * ...
      * @author Husky
      */
-    public class CStage5 extends CBaseStageState 
+    public class CStage7 extends CBaseStageState 
     {
+ 
         override public function create():void 
         {
-            FlxG.bgColor = 0XFF96AECE;
+            FlxG.bgColor = 0XFF29E8EF;
             
             super.create();
             
-            m_sStageName = "Stage5";
+            m_sStageName = "Stage7";
             
             var gDoor:CFlxMyGroup = new CFlxMyGroup(10, 100);
             gDoor.bCanTakeIt = false;
             gDoor.add(new CFlxMySprite(DOOR_HANDLE_PIC, "door_handle", 1));
             gDoor.add(new CFlxMySprite(DOOR_BOARD_PIC, "door_board", 0));
-            m_gPuzzleObjects.add(gDoor);
+            //m_gPuzzleObjects.add(gDoor);
             
             //var group:CFlxMyGroup = new CFlxMyGroup(50, 100);
             //m_gPuzzleObjects.add(group);
             
-            var group:CFlxMyGroup = new CFlxMyGroup(65, 100);
-            group.add(new CFlxMySprite(HEART_CONTAINER, "heart_container", 2));
+            //var group:CFlxMyGroup = new CFlxMyGroup(10, 100);
+            gDoor.add(new CFlxMySprite(CLOCK_COVER_PIC, "clock_cover", 6));
+            //m_gPuzzleObjects.add(group);
             
-            //
-            m_gPlayerSelectItem = group;
-            //
+            //var group:CFlxMyGroup = new CFlxMyGroup(10, 100);
+            gDoor.add(new CFlxMySprite(DRILL_PIC, "drill", 4));
+            //m_gPuzzleObjects.add(group);
             
+            //var group:CFlxMyGroup = new CFlxMyGroup(10, 100);
+            gDoor.add(new CFlxMySprite(UMBRELLA_PART, "umrealla_part", 5));
+            gDoor.add(new CFlxMySprite(CAT_PIC, "cat", 3));
+            //m_gPuzzleObjects.add(group);
             
-            
+            //var group:CFlxMyGroup = new CFlxMyGroup(10, 100);
+            gDoor.add(new CFlxMySprite(WINDMILL_HEAD_PIC, "wind_mill", 10));
+            gDoor.add(new CFlxMySprite(RHIZOME_PIC, "rhizome", 9));
+            m_gPuzzleObjects.add(gDoor);
+            //----------------------------------------------------------------
+            var group:CFlxMyGroup = new CFlxMyGroup(75, 100);
+            group.add(new CFlxMySprite(KEY_PIC, "key", 20));
             m_gPuzzleObjects.add(group);
             
             group = new CFlxMyGroup(100, 100);
-            group.add(new CFlxMySprite(HEART_PIECE_4, "heart_piece_4", 3));
+            group.add(new CFlxMySprite(CLOCK_COVER_PIC, "clock_cover", 6));
             m_gPuzzleObjects.add(group);
             
             group = new CFlxMyGroup(125, 100);
-            group.add(new CFlxMySprite(HEART_PIECE_1, "heart_piece_1", 4));
+            group.add(new CFlxMySprite(UMBRELLA_PART, "umrealla_part", 5));
+            group.add(new CFlxMySprite(DRILL_PIC, "drill", 4));
             m_gPuzzleObjects.add(group);
             
             group = new CFlxMyGroup(150, 100);
-            group.add(new CFlxMySprite(HEART_PIECE_3, "heart_Piece_3", 5));
+            group.add(new CFlxMySprite(WINDMILL_HEAD_PIC, "wind_mill", 10));
+            group.add(new CFlxMySprite(RHIZOME_PIC, "rhizome", 9));
             m_gPuzzleObjects.add(group);
             
-            group = new CFlxMyGroup(185, 100);
-            group.add(new CFlxMySprite(HEART_PIECE_2, "heart_piece_2", 6));
+            group = new CFlxMyGroup(175, 100);
+            group.add(new CFlxMySprite(CAT_PIC, "cat", 7));
+            group.add(new CFlxMySprite(CAT_BODY, "cat_Body", 8));
             m_gPuzzleObjects.add(group);
             
             this.add(m_gPuzzleObjects);
@@ -72,9 +87,6 @@ package com.game.state
             //Prologue
             var sFnName:String = this.m_sStageName + "_Prologue";
             m_cLuaMgr.cLuaAlchemy.callGlobal(sFnName);
-            
-            //Rest Stage Lua flags
-            m_cLuaMgr.cLuaAlchemy.callGlobal("Lua_ResetAllFlag");
         }
         
         protected override function GoToNextState() : void
@@ -84,23 +96,11 @@ package com.game.state
             FlxG.fade(0xFF000000, 1.0,
             function () : void
             {
-                FlxG.switchState(new CEndingState());
+                FlxG.switchState(new CStage8());
             });
         }
         
-        override public function update():void 
-        {
-            //-------------------------------
-            if (m_sClickMouse == Mouse.MIDDLE)
-            {
-                m_sClickMouse = "";
-            }
-            //-------------------------------
-            
-            
-            super.update();
-        }
         
-        public function CStage5() { }
+        public function CStage7() { }
     }
 }

@@ -493,5 +493,24 @@ package com.game.state
             this.add(spr);
         }
         
+        public function GroupHasChild(sChildName:String) : Boolean
+        {
+            for each (var group:CFlxMyGroup in this.members)
+            {
+                if (group == null)
+                {
+                    continue;
+                }
+                
+                if (group.HasTheChild(sChildName) == false)
+                {
+                    continue;
+                }
+                
+                return true;
+            }
+            
+            return false;
+        }
     }
 }

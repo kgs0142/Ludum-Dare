@@ -66,6 +66,9 @@ package com.game.state
             tf.alpha = 0.5;
             this.add(tf);
             
+            //Rest Stage Lua flags
+            m_cLuaMgr.cLuaAlchemy.callGlobal("Lua_ResetAllFlag");
+            
             //Play Music
             FlxG.playMusic(Music001);
         }

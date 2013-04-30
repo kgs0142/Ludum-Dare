@@ -132,25 +132,26 @@ function Lua_Stage4_ClickTheDoor(firstItem, secondItem, bCanTakeIt, sClickMouse)
 	this.SetStageClear(true);
 end
 
-local bStageLock1 = false
-local bStageLock2 = false
+local bStage5Lock1 = false
+local bStage5Lock2 = false
 function Lua_Stage5_CombineTwoItem(firstItem, secondItem, bCanTakeIt, sClickMouse)
 	--combine on the door
 	Lua_Common_CombineTwoItem(firstItem, secondItem, sClickMouse);
 
 	--拼出破碎的心後
-	if (bStageLock1 == false and
+	if (bStage5Lock1 == false and
 		as3.tolua(firstItem.HasOnlyTheseChild("heart_container", "heart_piece_1",
 		"heart_piece_2", "heart_Piece_3", "heart_piece_4")) == true) then
 		
-		bStageLock1 = true;
+		bStage5Lock1 = true;
 		--Text.Lua
 		Stage5_Text1();
 	--把破碎的心清空
-	elseif (bStageLock1 == true and bStageLock2 == false and
-			as3.tolua(firstItem.HasOnlyTheseChild("heart_container")) == true) then
+	elseif (bStage5Lock1 == true and bStage5Lock2 == false and
+			(as3.tolua(firstItem.HasOnlyTheseChild("heart_container")) == true or 
+			 as3.tolua(secondItem.HasOnlyTheseChild("heart_container")) == true) ) then
 		
-		bStageLock2 = true;
+		bStage5Lock2 = true;
 		--Text.Lua
 		Stage5_Text3();
 	end	
@@ -162,7 +163,7 @@ function Lua_Stage5_ClickTheDoor(firstItem, secondItem, bCanTakeIt, sClickMouse)
 
 	--特殊條件：必須把現場所有愛心清掉，只剩Container才能離開
 	
-	if (bStageLock1 ~= true or bStageLock2 ~= true) then
+	if (bStage5Lock1 ~= true or bStage5Lock2 ~= true) then
 		return;
 	end
 
@@ -316,4 +317,14 @@ function Lua_Stage11_ClickTheDoor(firstItem, secondItem, bCanTakeIt, sClickMouse
 	print("PASS!");
 	this.SetStageClear(true);
 
+end
+
+
+
+
+---------------------------------------------------------------------------------
+function Lua_ResetAllFlag()
+	bStage5Lock1 = false;
+	bStage5Lock2 = false;
+	bStage6Lock1 = false;
 end
