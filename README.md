@@ -1,4 +1,4 @@
-LD25
+My games for Ludum Dare
 ====
 
-a repo for all the LD25 content
+a repo for all my ludum dare content
