@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<level name="First_Stage" minx="0" miny="0" maxx="3200" maxy="256" bgColor = "0xff000000" >
+	<layer name="BG" xScroll="1.000" yScroll="1.000" >
+		<map csv="Scene/mapCSV_First_Stage_BG.csv" tiles="tileset/Tileset_Cloud.png" x="0.000" y="0.000" tileWidth="16" tileHeight="16" hasHits="false" collIdx="1" drawIdx="1" />
+	</layer>
+	<layer name="Cloud" xScroll="0.300" yScroll="0.500" >
+		<map csv="Scene/mapCSV_First_Stage_Cloud.csv" tiles="tileset/Tileset_Cloud.png" x="0.000" y="0.000" tileWidth="16" tileHeight="16" hasHits="false" collIdx="1" drawIdx="1" />
+	</layer>
+	<layer name="Stuff" xScroll="1.000" yScroll="1.000" >
+		<map csv="Scene/mapCSV_First_Stage_Stuff.csv" tiles="StuffSet.png" x="0.000" y="0.000" tileWidth="16" tileHeight="16" hasHits="false" collIdx="1" drawIdx="1" />
+	</layer>
+	<layer name="Main" xScroll="1.000" yScroll="1.000" >
+		<map csv="Scene/mapCSV_First_Stage_Main.csv" tiles="tileset/Tileset001.png" x="0.000" y="0.000" tileWidth="16" tileHeight="16" hasHits="true" collIdx="1" drawIdx="1" />
+	</layer>
+	<layer name="triggers" xScroll="1.000" yScroll="1.000" >
+		<shape type="box" x="78.00" y="177.00" angle="0.00" wid="22.55" ht="22.55" >
+			<properties>
+				<prop name="event" value="clear_dialog" />
+				<prop name="guid" value="default_spawn_point" />
+			</properties>
+		</shape>
+		<shape type="box" x="45.00" y="123.00" angle="0.00" wid="21.67" ht="100.10" >
+			<properties>
+				<prop name="event" value="clear_dialog" />
+				<prop name="once" value="false" />
+			</properties>
+		</shape>
+		<shape type="box" x="79.00" y="203.00" angle="0.00" wid="20.59" ht="20.59" >
+			<properties>
+				<prop name="event" value="e001" />
+				<prop name="once" value="false" />
+			</properties>
+		</shape>
+		<shape type="box" x="556.00" y="200.00" angle="0.00" wid="20.59" ht="20.59" >
+			<properties>
+				<prop name="event" value="e002" />
+				<prop name="once" value="false" />
+			</properties>
+		</shape>
+		<shape type="box" x="110.00" y="123.00" angle="0.00" wid="20.24" ht="100.10" >
+			<properties>
+				<prop name="event" value="clear_dialog" />
+				<prop name="once" value="false" />
+			</properties>
+		</shape>
+		<shape type="box" x="513.00" y="122.00" angle="0.00" wid="31.25" ht="100.10" >
+			<properties>
+				<prop name="event" value="clear_dialog" />
+				<prop name="once" value="false" />
+			</properties>
+		</shape>
+		<shape type="box" x="589.00" y="122.00" angle="0.00" wid="28.57" ht="100.10" >
+			<properties>
+				<prop name="event" value="clear_dialog" />
+				<prop name="once" value="false" />
+			</properties>
+		</shape>
+		<shape type="box" x="878.00" y="200.00" angle="0.00" wid="25.00" ht="25.00" >
+			<properties>
+				<prop name="event" value="e003" />
+				<prop name="once" value="false" />
+			</properties>
+		</shape>
+		<shape type="box" x="843.00" y="125.00" angle="0.00" wid="28.57" ht="100.10" >
+			<properties>
+				<prop name="event" value="clear_dialog" />
+				<prop name="once" value="false" />
+			</properties>
+		</shape>
+		<shape type="box" x="914.00" y="126.00" angle="0.00" wid="28.57" ht="100.10" >
+			<properties>
+				<prop name="event" value="clear_dialog" />
+				<prop name="once" value="false" />
+			</properties>
+		</shape>
+		<shape type="box" x="981.00" y="134.00" angle="0.00" wid="50.00" ht="89.00" >
+			<properties>
+				<prop name="event" value="e004" />
+				<prop name="target" value="9D1E2C2A-B5C3-2EEC-309B-8C02B6CE97C2" />
+			</properties>
+		</shape>
+		<shape type="box" x="1550.00" y="207.00" angle="0.00" wid="10.67" ht="10.67" >
+			<properties>
+				<prop name="Comment" value="Spawn enemy" />
+				<prop name="guid" value="F5FC6E43-B2B5-5CC0-F62A-37ADC886A89D" />
+				<prop name="event" value="clear_dialog" />
+			</properties>
+		</shape>
+		<shape type="box" x="1104.00" y="208.00" angle="0.00" wid="10.67" ht="10.67" >
+			<properties>
+				<prop name="Comment" value="Spawn enemy" />
+				<prop name="guid" value="9D1E2C2A-B5C3-2EEC-309B-8C02B6CE97C2" />
+				<prop name="event" value="clear_dialog" />
+			</properties>
+		</shape>
+		<shape type="box" x="1442.00" y="133.00" angle="0.00" wid="50.00" ht="89.00" >
+			<properties>
+				<prop name="event" value="e006" />
+				<prop name="target" value="F5FC6E43-B2B5-5CC0-F62A-37ADC886A89D" />
+			</properties>
+		</shape>
+		<shape type="box" x="1258.00" y="198.00" angle="0.00" wid="27.88" ht="27.88" >
+			<properties>
+				<prop name="event" value="e005" />
+				<prop name="once" value="false" />
+			</properties>
+		</shape>
+		<shape type="box" x="1215.00" y="124.00" angle="0.00" wid="28.57" ht="100.10" >
+			<properties>
+				<prop name="event" value="clear_dialog" />
+				<prop name="once" value="false" />
+			</properties>
+		</shape>
+		<shape type="box" x="1300.00" y="122.00" angle="0.00" wid="28.57" ht="100.10" >
+			<properties>
+				<prop name="event" value="clear_dialog" />
+				<prop name="once" value="false" />
+			</properties>
+		</shape>
+		<shape type="box" x="1757.00" y="79.00" angle="0.00" wid="193.00" ht="145.00" >
+			<properties>
+				<prop name="event" value="first_stage_clear" />
+				<prop name="once" value="false" />
+			</properties>
+		</shape>
+	</layer>
+	<layer name="sprites" xScroll="1.000" yScroll="1.000" >
+	</layer>
+</level>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<level name="Menu_Stage" minx="3200" miny="0" maxx="3520" maxy="160" bgColor = "0xff000000" >
+	<layer name="BG" xScroll="1.000" yScroll="1.000" >
+		<map csv="Scene/mapCSV_Menu_Stage_BG.csv" tiles="tileset/Tileset_Cloud.png" x="3200.000" y="0.000" tileWidth="16" tileHeight="16" hasHits="false" collIdx="1" drawIdx="1" />
+	</layer>
+	<layer name="Cloud" xScroll="1.000" yScroll="1.000" >
+		<map csv="Scene/mapCSV_Menu_Stage_Cloud.csv" tiles="tileset/Tileset_Cloud.png" x="3200.000" y="0.000" tileWidth="16" tileHeight="16" hasHits="false" collIdx="1" drawIdx="1" />
+	</layer>
+	<layer name="Cloud(2)" xScroll="1.000" yScroll="1.000" >
+		<map csv="Scene/mapCSV_Menu_Stage_Cloud(2).csv" tiles="tileset/Tileset_Cloud.png" x="3200.000" y="0.000" tileWidth="16" tileHeight="16" hasHits="false" collIdx="1" drawIdx="1" />
+	</layer>
+	<layer name="Main" xScroll="1.000" yScroll="1.000" >
+		<map csv="Scene/mapCSV_Menu_Stage_Main.csv" tiles="tileset/Tileset001.png" x="3200.000" y="0.000" tileWidth="16" tileHeight="16" hasHits="true" collIdx="1" drawIdx="1" />
+	</layer>
+	<layer name="triggers" xScroll="1.000" yScroll="1.000" >
+		<shape type="box" x="3349.00" y="112.00" angle="0.00" wid="15.69" ht="15.69" >
+			<properties>
+				<prop name="event" value="clear_dialog" />
+				<prop name="guid" value="little_boy_spawn_point" />
+			</properties>
+		</shape>
+		<shape type="box" x="3274.00" y="111.00" angle="0.00" wid="15.69" ht="15.69" >
+			<properties>
+				<prop name="event" value="clear_dialog" />
+				<prop name="guid" value="default_spawn_point" />
+			</properties>
+		</shape>
+	</layer>
+	<layer name="sprites" xScroll="1.000" yScroll="1.000" >
+	</layer>
+</level>

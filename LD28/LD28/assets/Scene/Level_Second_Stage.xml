@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<level name="Second_Stage" minx="0" miny="256" maxx="3200" maxy="576" bgColor = "0xff000000" >
+	<layer name="BG" xScroll="1.000" yScroll="1.000" >
+		<map csv="Scene/mapCSV_Second_Stage_BG.csv" tiles="tileset/Tileset_Cloud.png" x="0.000" y="256.000" tileWidth="16" tileHeight="16" hasHits="false" collIdx="1" drawIdx="1" />
+	</layer>
+	<layer name="Cloud" xScroll="0.300" yScroll="0.900" >
+		<map csv="Scene/mapCSV_Second_Stage_Cloud.csv" tiles="tileset/Tileset_Cloud.png" x="0.000" y="256.000" tileWidth="16" tileHeight="16" hasHits="false" collIdx="1" drawIdx="1" />
+	</layer>
+	<layer name="Cloud(2)" xScroll="0.400" yScroll="1.000" >
+		<map csv="Scene/mapCSV_Second_Stage_Cloud(2).csv" tiles="tileset/Tileset_Cloud.png" x="0.000" y="256.000" tileWidth="16" tileHeight="16" hasHits="false" collIdx="1" drawIdx="1" />
+	</layer>
+	<layer name="Stuff" xScroll="1.000" yScroll="1.000" >
+		<map csv="Scene/mapCSV_Second_Stage_Stuff.csv" tiles="StuffSet.png" x="0.000" y="256.000" tileWidth="16" tileHeight="16" hasHits="false" collIdx="1" drawIdx="1" />
+	</layer>
+	<layer name="Main" xScroll="1.000" yScroll="1.000" >
+		<map csv="Scene/mapCSV_Second_Stage_Main.csv" tiles="tileset/Tileset001.png" x="0.000" y="256.000" tileWidth="16" tileHeight="16" hasHits="true" collIdx="1" drawIdx="1" />
+	</layer>
+	<layer name="triggers" xScroll="1.000" yScroll="1.000" >
+		<shape type="box" x="3097.00" y="310.00" angle="0.00" wid="112.00" ht="112.00" >
+			<properties>
+				<prop name="event" value="second_stage_clear" />
+				<prop name="once" value="false" />
+			</properties>
+		</shape>
+		<shape type="box" x="57.00" y="483.00" angle="0.00" wid="22.55" ht="22.55" >
+			<properties>
+				<prop name="event" value="clear_dialog" />
+				<prop name="guid" value="default_spawn_point" />
+			</properties>
+		</shape>
+		<shape type="box" x="131.00" y="419.00" angle="0.00" wid="100.98" ht="100.98" >
+			<properties>
+				<prop name="event" value="e007" />
+				<prop name="target" value="0423AF20-ACCA-B9B5-9139-69EF7B906522" />
+			</properties>
+		</shape>
+		<shape type="box" x="352.00" y="493.00" angle="0.00" wid="17.35" ht="17.35" >
+			<properties>
+				<prop name="event" value="clear_dialog" />
+				<prop name="comment" value="Spawn enemy" />
+				<prop name="guid" value="0423AF20-ACCA-B9B5-9139-69EF7B906522" />
+			</properties>
+		</shape>
+		<shape type="box" x="711.00" y="507.00" angle="0.00" wid="17.35" ht="17.35" >
+			<properties>
+				<prop name="event" value="clear_dialog" />
+				<prop name="comment" value="Spawn enemy" />
+				<prop name="guid" value="BC7F35B0-3F95-C2EA-7892-FDCD2D4D64B0" />
+			</properties>
+		</shape>
+		<shape type="box" x="445.00" y="444.00" angle="0.00" wid="100.98" ht="100.98" >
+			<properties>
+				<prop name="event" value="e008" />
+				<prop name="target" value="BC7F35B0-3F95-C2EA-7892-FDCD2D4D64B0" />
+			</properties>
+		</shape>
+		<shape type="box" x="865.00" y="429.00" angle="0.00" wid="100.98" ht="100.98" >
+			<properties>
+				<prop name="event" value="e009" />
+				<prop name="target" value="0574F2C4-2511-D74D-E3CF-066FF9160D7B" />
+			</properties>
+		</shape>
+		<shape type="box" x="1150.00" y="492.00" angle="0.00" wid="17.35" ht="17.35" >
+			<properties>
+				<prop name="event" value="clear_dialog" />
+				<prop name="comment" value="Spawn enemy" />
+				<prop name="guid" value="0574F2C4-2511-D74D-E3CF-066FF9160D7B" />
+			</properties>
+		</shape>
+		<shape type="box" x="1671.00" y="506.00" angle="0.00" wid="17.35" ht="17.35" >
+			<properties>
+				<prop name="event" value="clear_dialog" />
+				<prop name="comment" value="Spawn enemy" />
+				<prop name="guid" value="D79BC876-A632-F780-0797-07BB9A15E334" />
+			</properties>
+		</shape>
+		<shape type="box" x="1375.00" y="385.00" angle="0.00" wid="100.98" ht="100.98" >
+			<properties>
+				<prop name="event" value="e010" />
+				<prop name="target" value="D79BC876-A632-F780-0797-07BB9A15E334" />
+			</properties>
+		</shape>
+		<shape type="box" x="1715.00" y="296.00" angle="0.00" wid="100.98" ht="100.98" >
+			<properties>
+				<prop name="event" value="e011" />
+				<prop name="target" value="249F48C2-B9C1-A372-C009-9988092BABEC" />
+			</properties>
+		</shape>
+		<shape type="box" x="1971.00" y="506.00" angle="0.00" wid="17.35" ht="17.35" >
+			<properties>
+				<prop name="event" value="clear_dialog" />
+				<prop name="comment" value="Spawn enemy" />
+				<prop name="guid" value="249F48C2-B9C1-A372-C009-9988092BABEC" />
+			</properties>
+		</shape>
+		<shape type="box" x="2451.00" y="468.00" angle="0.00" wid="17.35" ht="17.35" >
+			<properties>
+				<prop name="event" value="clear_dialog" />
+				<prop name="comment" value="Spawn enemy" />
+				<prop name="guid" value="5DBD4BBE-9658-26D6-A314-5633BB0EDA0D" />
+			</properties>
+		</shape>
+		<shape type="box" x="2103.00" y="409.00" angle="0.00" wid="100.98" ht="100.98" >
+			<properties>
+				<prop name="event" value="e012" />
+				<prop name="target" value="5DBD4BBE-9658-26D6-A314-5633BB0EDA0D" />
+			</properties>
+		</shape>
+		<shape type="box" x="2696.00" y="329.00" angle="0.00" wid="100.98" ht="100.98" >
+			<properties>
+				<prop name="event" value="e013" />
+				<prop name="target" value="91F364BB-6D68-CA33-2732-6F66FB678789" />
+			</properties>
+		</shape>
+		<shape type="box" x="3036.00" y="475.00" angle="0.00" wid="17.35" ht="17.35" >
+			<properties>
+				<prop name="event" value="clear_dialog" />
+				<prop name="comment" value="Spawn enemy" />
+				<prop name="guid" value="91F364BB-6D68-CA33-2732-6F66FB678789" />
+			</properties>
+		</shape>
+	</layer>
+	<layer name="sprites" xScroll="1.000" yScroll="1.000" >
+	</layer>
+</level>

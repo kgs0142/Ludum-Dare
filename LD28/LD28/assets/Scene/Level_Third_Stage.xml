@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<level name="Third_Stage" minx="0" miny="576" maxx="1600" maxy="3776" bgColor = "0xff000000" >
+	<layer name="BG" xScroll="1.000" yScroll="1.000" >
+		<map csv="Scene/mapCSV_Third_Stage_BG.csv" tiles="tileset/Tileset001.png" x="0.000" y="576.000" tileWidth="16" tileHeight="16" hasHits="false" collIdx="1" drawIdx="1" />
+	</layer>
+	<layer name="Main" xScroll="1.000" yScroll="1.000" >
+		<map csv="Scene/mapCSV_Third_Stage_Main.csv" tiles="tileset/Tileset001.png" x="0.000" y="576.000" tileWidth="16" tileHeight="16" hasHits="true" collIdx="1" drawIdx="1" />
+	</layer>
+	<layer name="triggers" xScroll="1.000" yScroll="1.000" >
+		<shape type="box" x="280.06" y="3184.00" angle="0.00" wid="46.48" ht="37.80" >
+			<properties>
+				<prop name="event" value="save_boss_spawn_point" />
+				<prop name="guid" value="boss_spawn_point" />
+			</properties>
+		</shape>
+		<shape type="box" x="257.00" y="3333.00" angle="0.00" wid="94.66" ht="21.43" >
+			<properties>
+				<prop name="comment" value="Add wall here" />
+				<prop name="guid" value="07EA644A-6B62-E725-7375-A3B578F9D3A9" />
+				<prop name="event" value="clear_dialog" />
+			</properties>
+		</shape>
+		<shape type="box" x="55.00" y="708.00" angle="0.00" wid="22.55" ht="22.55" >
+			<properties>
+				<prop name="event" value="clear_dialog" />
+				<prop name="guid" value="default_spawn_point" />
+			</properties>
+		</shape>
+		<shape type="box" x="619.00" y="675.00" angle="0.00" wid="100.98" ht="100.98" >
+			<properties>
+				<prop name="event" value="e014" />
+				<prop name="target" value="55ED90D0-468D-0EC1-1A7E-8C72F2D01509" />
+			</properties>
+		</shape>
+		<shape type="box" x="85.00" y="874.00" angle="0.00" wid="17.35" ht="17.35" >
+			<properties>
+				<prop name="event" value="clear_dialog" />
+				<prop name="comment" value="Spawn enemy" />
+				<prop name="guid" value="55ED90D0-468D-0EC1-1A7E-8C72F2D01509" />
+			</properties>
+		</shape>
+		<shape type="box" x="546.00" y="1066.00" angle="0.00" wid="292.94" ht="100.98" >
+			<properties>
+				<prop name="event" value="e015" />
+				<prop name="target" value="AE2BD32A-35EA-B673-2370-6CACB315A36B" />
+			</properties>
+		</shape>
+		<shape type="box" x="256.00" y="1329.00" angle="0.00" wid="11.57" ht="11.57" >
+			<properties>
+				<prop name="event" value="clear_dialog" />
+				<prop name="comment" value="Spawn enemy" />
+				<prop name="guid" value="AE2BD32A-35EA-B673-2370-6CACB315A36B" />
+			</properties>
+		</shape>
+		<shape type="box" x="-19.00" y="3698.00" angle="0.00" wid="652.04" ht="50.00" >
+			<properties>
+				<prop name="event" value="e016" />
+				<prop name="target" value="07EA644A-6B62-E725-7375-A3B578F9D3A9" />
+			</properties>
+		</shape>
+		<shape type="box" x="-17.00" y="3708.00" angle="0.00" wid="652.04" ht="50.00" >
+			<properties>
+				<prop name="event" value="e017" />
+				<prop name="target" value="EC675FED-A303-488D-0842-B8A3431007DC" />
+			</properties>
+		</shape>
+		<shape type="box" x="81.00" y="3366.00" angle="0.00" wid="94.66" ht="21.43" >
+			<properties>
+				<prop name="comment" value="Add boss here" />
+				<prop name="guid" value="EC675FED-A303-488D-0842-B8A3431007DC" />
+				<prop name="event" value="clear_dialog" />
+			</properties>
+		</shape>
+	</layer>
+	<layer name="sprites" xScroll="1.000" yScroll="1.000" >
+	</layer>
+</level>
