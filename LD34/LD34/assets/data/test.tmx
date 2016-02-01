@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="160">
+ <tileset firstgid="1" name="Test" tilewidth="32" tileheight="32" tilecount="64">
+  <image source="../images/tile/test.png" trans="ff00ff" width="256" height="256"/>
+  <terraintypes>
+   <terrain name="新地形" tile="10"/>
+   <terrain name="新地形" tile="4"/>
+  </terraintypes>
+  <tile id="4" terrain="1,1,1,1"/>
+  <tile id="10" terrain="0,0,0,0"/>
+ </tileset>
+ <layer name="BG" width="100" height="100">
+  <properties>
+   <property name="nocollide" value="true"/>
+   <property name="tileset" value="Test"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztw8EJAAAMA6H7ZP+VC51DwVVTVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVX/AWtAw1E=
+  </data>
+ </layer>
+ <layer name="FG" width="100" height="100">
+  <properties>
+   <property name="tileset" value="Test"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt1EmOwzAMRNHsc//7Zu3AGiyVyJL1P6BFhrZpvqC/n8/ny+FwqoeuRe8Rj3p4eIWHV3h4hYdXeHiFh1d4eIWHV2/yGH0WhzP7DKqdKcveKR71a6t2FBkeeOzoob62y29nZw91eODRmkEZHvMzKIv2mJ0fj1iPns/xwKM2gzI85u+lDI/5eylb6VG635PP717jgccpHiOv8RifTbH/VfO2wgMPN4+ev8cDj1M9el7jofNofY4HHrXZ8Gi/xuN9Hj3t4rGyHj884jxa4YEHHuXwKN9ftZuMo9yNMjzmd6MMj/ndKMNjfjfK8JjfjTI85nemTOHh1Okebp3s4diJHs42eHiFh1d4eIWHV3jEVbrv7DM47cBpliezlt7HI66ah+q62TtwmuXJrP/vq67rtAOnWVrz/b+vuO7IHHis+x8xMseKWUr3OcVjZg43jxPO3c7wwIODh+O52xkeeDydc/fw8AoPr/DwCg+vHDx65sGj73vZ523hsWfZe8fjWvbe8bjGXnPidx7b6E7wGG/FM+NRL/q58PAq0qPnuyvMd/oN4YEHHuXwwEPtsXLm6PDAA49yTh4uJzM88HA/meGBh/vJDA883E9mkbNk7xmP+r1cT2bZz87h7HB+p/TKIQ==
+  </data>
+ </layer>
+ <objectgroup color="#a40002" name="Spikes">
+  <properties>
+   <property name="deadZone" value="true"/>
+  </properties>
+  <object id="4" gid="6" x="448" y="3136" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="5" gid="6" x="480" y="3136" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="20" gid="6" x="3008" y="2112" width="32" height="32" rotation="90">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="24" gid="6" x="3008" y="2240" width="32" height="32" rotation="90">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="25" gid="6" x="3008" y="2368" width="32" height="32" rotation="90">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="74" gid="6" x="2368" y="3136" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="75" gid="6" x="3040" y="3136" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="76" gid="6" x="2464" y="3136" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="77" gid="6" x="2720" y="3136" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="78" gid="6" x="2528" y="3136" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="79" gid="6" x="2880" y="3136" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="80" gid="6" x="2656" y="3136" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="81" gid="6" x="2592" y="3136" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="82" gid="6" x="2432" y="3136" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="83" x="2144" y="3104" width="992" height="64">
+   <properties>
+    <property name="goType" value="DeadZone"/>
+   </properties>
+  </object>
+  <object id="84" gid="6" x="2240" y="3136" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="85" gid="6" x="2560" y="3136" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="86" gid="6" x="2944" y="3136" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="87" gid="6" x="2272" y="3136" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="88" gid="6" x="2400" y="3136" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="89" gid="6" x="3008" y="3136" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="90" gid="6" x="2848" y="3136" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="91" gid="6" x="2912" y="3136" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="92" gid="6" x="2208" y="3136" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="93" gid="6" x="3072" y="3136" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="94" gid="6" x="2496" y="3136" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="95" gid="6" x="2304" y="3136" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="96" gid="6" x="2688" y="3136" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="97" gid="6" x="2336" y="3136" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="98" gid="6" x="2816" y="3136" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="99" gid="6" x="2784" y="3136" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="100" gid="6" x="3104" y="3136" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="101" gid="6" x="2176" y="3136" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="102" gid="6" x="2976" y="3136" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="103" gid="6" x="2144" y="3136" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="104" gid="6" x="2624" y="3136" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="105" gid="6" x="2752" y="3136" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="126" gid="6" x="1280" y="1984" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="127" gid="6" x="1184" y="1984" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="128" gid="6" x="1312" y="1984" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="129" x="1184" y="1952" width="864" height="64">
+   <properties>
+    <property name="goType" value="DeadZone"/>
+   </properties>
+  </object>
+  <object id="130" gid="6" x="1216" y="1984" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="131" gid="6" x="1248" y="1984" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="132" gid="6" x="1376" y="1984" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="133" gid="6" x="1344" y="1984" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="134" gid="6" x="1600" y="1984" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="135" gid="6" x="1408" y="1984" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="136" gid="6" x="1472" y="1984" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="137" gid="6" x="1536" y="1984" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="138" gid="6" x="1504" y="1984" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="139" gid="6" x="1440" y="1984" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="140" gid="6" x="1568" y="1984" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="141" gid="6" x="1824" y="1984" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="142" gid="6" x="1632" y="1984" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="143" gid="6" x="1696" y="1984" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="144" gid="6" x="1760" y="1984" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="145" gid="6" x="1728" y="1984" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="146" gid="6" x="1664" y="1984" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="147" gid="6" x="1792" y="1984" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="148" gid="6" x="2016" y="1984" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="149" gid="6" x="1920" y="1984" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="150" gid="6" x="1952" y="1984" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="151" gid="6" x="1984" y="1984" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="152" gid="6" x="1888" y="1984" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+  <object id="153" gid="6" x="1856" y="1984" width="32" height="32">
+   <properties>
+    <property name="goType" value="Spike"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="AI">
+  <object id="38" gid="7" x="96" y="3136" width="32" height="32">
+   <properties>
+    <property name="goType" value="Player"/>
+   </properties>
+  </object>
+  <object id="39" gid="8" x="1376" y="2624" width="32" height="32">
+   <properties>
+    <property name="goType" value="Monster_1"/>
+   </properties>
+  </object>
+  <object id="41" gid="8" x="2112" y="2624" width="32" height="32">
+   <properties>
+    <property name="goType" value="Monster_1"/>
+   </properties>
+  </object>
+  <object id="111" gid="24" x="352" y="2336" width="32" height="32">
+   <properties>
+    <property name="goType" value="Boss"/>
+   </properties>
+  </object>
+  <object id="112" gid="8" x="1056" y="2848" width="32" height="32">
+   <properties>
+    <property name="goType" value="Monster_1"/>
+   </properties>
+  </object>
+  <object id="113" gid="1" x="2752" y="1984" width="32" height="32">
+   <properties>
+    <property name="goType" value="DestroyableWall"/>
+   </properties>
+  </object>
+  <object id="115" gid="14" x="2720" y="1856" width="32" height="32">
+   <properties>
+    <property name="delay" value="1"/>
+    <property name="direction" value="DOWN"/>
+    <property name="goType" value="Launcher"/>
+   </properties>
+  </object>
+  <object id="116" gid="14" x="2656" y="1856" width="32" height="32">
+   <properties>
+    <property name="delay" value="1"/>
+    <property name="direction" value="DOWN"/>
+    <property name="goType" value="Launcher"/>
+   </properties>
+  </object>
+  <object id="117" gid="14" x="2592" y="1856" width="32" height="32">
+   <properties>
+    <property name="delay" value="2"/>
+    <property name="direction" value="DOWN"/>
+    <property name="goType" value="Launcher"/>
+   </properties>
+  </object>
+  <object id="118" gid="14" x="2528" y="1856" width="32" height="32">
+   <properties>
+    <property name="delay" value="2"/>
+    <property name="direction" value="DOWN"/>
+    <property name="goType" value="Launcher"/>
+   </properties>
+  </object>
+  <object id="119" gid="14" x="2464" y="1856" width="32" height="32">
+   <properties>
+    <property name="delay" value="3"/>
+    <property name="direction" value="DOWN"/>
+    <property name="goType" value="Launcher"/>
+   </properties>
+  </object>
+  <object id="120" gid="14" x="2400" y="1856" width="32" height="32">
+   <properties>
+    <property name="delay" value="3"/>
+    <property name="direction" value="DOWN"/>
+    <property name="goType" value="Launcher"/>
+   </properties>
+  </object>
+  <object id="121" gid="14" x="2336" y="1856" width="32" height="32">
+   <properties>
+    <property name="delay" value="2"/>
+    <property name="direction" value="DOWN"/>
+    <property name="goType" value="Launcher"/>
+   </properties>
+  </object>
+  <object id="122" gid="14" x="2272" y="1856" width="32" height="32">
+   <properties>
+    <property name="delay" value="1"/>
+    <property name="direction" value="DOWN"/>
+    <property name="goType" value="Launcher"/>
+   </properties>
+  </object>
+  <object id="123" gid="8" x="1920" y="1952" width="32" height="32">
+   <properties>
+    <property name="goType" value="Monster_1"/>
+   </properties>
+  </object>
+  <object id="124" gid="8" x="1664" y="1952" width="32" height="32">
+   <properties>
+    <property name="goType" value="Monster_1"/>
+   </properties>
+  </object>
+  <object id="125" gid="8" x="1408" y="1952" width="32" height="32">
+   <properties>
+    <property name="goType" value="Monster_1"/>
+   </properties>
+  </object>
+  <object id="154" gid="8" x="1792" y="1952" width="32" height="32">
+   <properties>
+    <property name="goType" value="Monster_1"/>
+   </properties>
+  </object>
+  <object id="155" gid="8" x="1536" y="1952" width="32" height="32">
+   <properties>
+    <property name="goType" value="Monster_1"/>
+   </properties>
+  </object>
+  <object id="156" gid="8" x="1280" y="1952" width="32" height="32">
+   <properties>
+    <property name="goType" value="Monster_1"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Triggers">
+  <object id="157" x="2144" y="1696" width="96" height="64">
+   <properties>
+    <property name="goType" value="CheckPoint"/>
+   </properties>
+  </object>
+  <object id="159" x="704" y="64" width="32" height="320">
+   <properties>
+    <property name="goType" value="CheckPoint"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

@@ -1,0 +1,4 @@
+*If you want to export not only Flash, don't use swf, AFAIK, it's not working on Windows.
+
+*I did a poor trick in AudioManager, that the manager will replace the sound Id from "mp3" to "ogg", or vice versa, 
+so you might need two version of audio for porting on different platform.
