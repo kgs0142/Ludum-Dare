@@ -29,8 +29,8 @@ class BaseGameState extends FlxSubState
 	/**
 	 * Function that is called once every frame.
 	 */
-	override public function update():Void
+	override public function update(elapsed:Float):Void
 	{
-		super.update();
+		super.update(elapsed);
 	}
 }

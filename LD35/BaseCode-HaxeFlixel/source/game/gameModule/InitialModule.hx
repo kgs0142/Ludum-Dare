@@ -3,7 +3,7 @@ package game.gameModule;
 import core.system.AudioManager;
 import flixel.FlxG;
 import flixel.FlxState;
-import flixel.plugin.MouseEventManager;
+import flixel.input.mouse.FlxMouseEventManager;
 import flixel.system.scaleModes.FixedScaleMode;
 import game.test.TestModule;
 import utils.Fonts;
@@ -22,7 +22,7 @@ class InitialModule extends FlxState
 		super.create();
         
         // We need the MouseEventManager plugin for sprite-mouse-interaction
-		FlxG.plugins.add(new MouseEventManager());
+		FlxG.plugins.add(new FlxMouseEventManager());
         
         Fonts.Get().Initial();
         AudioManager.Get().Initial();
@@ -47,8 +47,8 @@ class InitialModule extends FlxState
 	/**
 	 * Function that is called once every frame.
 	 */
-	override public function update():Void
+	override public function update(elapsed:Float):Void
 	{
-		super.update();
+		super.update(elapsed);
 	}
 }
