@@ -1,5 +1,6 @@
 package game.gameModule;
 
+import flixel.FlxG;
 import flixel.FlxState;
 
 /**
@@ -14,6 +15,8 @@ class MenuModule extends FlxState
 	override public function create():Void
 	{
 		super.create();
+        
+        FlxG.switchState(new PlayModule());
 	}
 
 	/**

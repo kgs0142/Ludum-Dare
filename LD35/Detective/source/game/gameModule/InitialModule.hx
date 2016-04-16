@@ -1,11 +1,15 @@
 package game.gameModule;
 
+import core.misc.CustomInterp;
 import core.system.AudioManager;
+import core.system.HScriptManager;
 import flixel.FlxG;
 import flixel.FlxState;
 import flixel.input.mouse.FlxMouseEventManager;
 import flixel.system.scaleModes.FixedScaleMode;
 import utils.Fonts;
+
+using core.util.CustomExtension;
 
 /**
  * The first and initialized state.
@@ -20,20 +24,28 @@ class InitialModule extends FlxState
 	{
 		super.create();
         
+        FlxG.debugger.visible = true;
+        
         // We need the MouseEventManager plugin for sprite-mouse-interaction
 		FlxG.plugins.add(new FlxMouseEventManager());
         
         Fonts.Get().Initial();
         AudioManager.Get().Initial();
         
-        //----------------------------------------------------------------------------------------
+        HScriptManager.Get().Initial(function ():Void 
+        {
+            var interp:CustomInterp = new CustomInterp();
+            interp.CommonInitial();
+            interp.execute(HScriptManager.Get().GetParsedScript(AssetPaths.config__hs));
+            interp.variables.get("testCreateFunction")();
+            
+            FlxG.switchState(new MenuModule());
+            //FlxG.switchState(new CutsceneModule());
+        });
         
-        //No scale mode
-        FlxG.scaleMode = new FixedScaleMode();
-        
-        FlxG.switchState(new MenuModule());
-	}
-
+        //----------------------------------------------------------------------------------------	}
+    }
+    
 	/**
 	 * Function that is called when this state is destroyed - you might want to
 	 * consider setting all objects this state uses to null to help garbage collection.

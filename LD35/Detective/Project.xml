@@ -34,9 +34,7 @@
     
 	<!-- <assets path="assets" include="*.swf"/> -->
     
-    <assets path="assets/data" />
-    
-    <assets path="assets/images" />
+	<assets path="assets"/>
     
     <assets path="assets/fonts" if="html5" />
     <assets path="assets/fonts/OutputFont.ttf" rename="OutputFont_ttf" embed="true" />
@@ -46,7 +44,6 @@
     
     <assets path="assets/sounds" include="*.mp3" if="flash" />
     <assets path="assets/sounds" include="*.wav|*.ogg" unless="flash" />
-    <assets path="assets/sounds/type/defaultTypetext.ogg" embed="true" />
     
 	<!--------------------------------LIBRARIES------------------------------------->
 
@@ -57,7 +54,7 @@
 	<haxelib name="flixel-addons" />
 	
 	<!--In case you want to use the ui package-->
-	<!--haxelib name="flixel-ui"/-->
+	<haxelib name="flixel-ui"/>
 	
 	<!--In case you want to use nape with flixel-->
 	<!--haxelib name="nape" /-->
@@ -88,6 +85,8 @@
 	<!--Disable the Flixel core focus lost screen-->
 	<!--haxedef name="FLX_NO_FOCUS_LOST_SCREEN" /-->
 	
+    <haxedef name="WIP" unless="release"/>
+    
 	<!--Disable the Flixel core debugger. Automatically gets set whenever you compile in release mode!-->
 	<haxedef name="FLX_NO_DEBUG" unless="debug" />
 	
