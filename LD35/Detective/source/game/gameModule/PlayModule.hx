@@ -13,6 +13,7 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxCollision;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
+import game.manager.AudioManager;
 import game.manager.LevelManager;
 import game.object.SpritePiece;
 import haxe.Timer;
@@ -41,8 +42,18 @@ class PlayModule extends FlxState
     private var assignPuzzleScaleY:Float = 0;
     private var assignPuzzleAngle:Float = 0;
     
+    private var puzzleScaleXFactor:Float = 0;
+    private var puzzleScaleYFactor:Float = 0;
+    private var puzzleAngleFactor:Float = 0;
+    
     private var collideSprite:FlxSprite;
     
+    private var mouseCursor:FlxSprite;
+    
+    //----------------------------------
+    private var shadowSpr:FlxSprite;
+    private var bgSpr:FlxSprite;
+    //------------------------------
     private var doingLevelClearProcess:Bool= false;
     
     private var collisionPieceCount:Int = 0;
@@ -52,10 +63,6 @@ class PlayModule extends FlxState
 	override public function create():Void
 	{
 		super.create();
-        
-        var bg:FlxSprite = new FlxSprite();
-        bg.loadGraphic(AssetPaths.PlayBG__png);
-        this.add(bg);
         
         var levelScriptName = LevelManager.Get().GetLevelScriptName();
         if (levelScriptName == "")
@@ -73,6 +80,9 @@ class PlayModule extends FlxState
         this.spritePieceArray = new Array<SpritePiece>();
         this.spritePieceGroup = new FlxSpriteGroup();
         
+        FlxG.watch.add(this, "assignPuzzleScaleX", "assignPuzzleScaleX:");
+        FlxG.watch.add(this, "assignPuzzleScaleY", "assignPuzzleScaleY:");
+        FlxG.watch.add(this, "assignPuzzleAngle", "assignPuzzleAngle:");
         FlxG.watch.add(this.spritePieceArray, "length", "TotalPieces:");
         FlxG.watch.add(this, "collisionPieceCount", "CollisionPieceCount:");
         //
@@ -98,22 +108,26 @@ class PlayModule extends FlxState
         //this.add(collideSprite);
         
         sliderScaleX = new FlxSlider(this, "assignPuzzleScaleX", -8*1, 8*20, -2, 2, 8*6, 8*2);
-        sliderScaleX.nameLabel.text = "X";
-        sliderScaleX.minLabel.text = "-";
-        sliderScaleX.minLabel.text = "+";
+        this.sliderScaleX.setTexts("X", false, "-", "+");
         this.add(sliderScaleX);
 
         sliderScaleY = new FlxSlider(this, "assignPuzzleScaleY", 8*6, 8*20, -2, 2, 8*6, 8*2);
-        sliderScaleY.nameLabel.text = "Y";
-        sliderScaleY.minLabel.text = "-";
-        sliderScaleY.minLabel.text = "+";
+        this.sliderScaleY.setTexts("Y", false, "-", "+");
         this.add(sliderScaleY);
 
         sliderAngle = new FlxSlider(this, "assignPuzzleAngle", 8*13, 8*20, 0, 360, 8*6, 8*2);
-        sliderAngle.nameLabel.text = "R";
-        sliderAngle.minLabel.text = "-";
-        sliderAngle.minLabel.text = "+";
+        this.sliderAngle.setTexts("R", false, "-", "+");
         this.add(sliderAngle);
+        
+        this.mouseCursor = new FlxSprite();
+        this.mouseCursor.loadGraphic(AssetPaths.Hand__png, true, 8, 8);
+        this.mouseCursor.animation.add("default", [0], 0, false);
+        this.mouseCursor.animation.add("press", [1], 0, false);
+        this.add(mouseCursor);
+        
+        FlxG.mouse.visible = false;
+        
+        AudioManager.Get().MusicFadeOutAndBGMFadeIn();
 	}
 
 	/**
@@ -125,8 +139,12 @@ class PlayModule extends FlxState
 		super.destroy();
         
         interp = null;
-        spritePieceArray.splice(0, spritePieceArray.length - 1);
-        spritePieceArray = null;
+        
+        if (spritePieceArray != null)
+        {
+            spritePieceArray.splice(0, spritePieceArray.length - 1);
+            spritePieceArray = null;
+        }
 	}
 
     private function CreatePuzzlePieces() : Void 
@@ -147,6 +165,10 @@ class PlayModule extends FlxState
     
     private function SetPuzzleValues(scaleX:Float, scaleY:Float, angle:Float):Void 
     {
+        this.puzzleScaleXFactor = scaleX;
+        this.puzzleScaleYFactor = scaleY;
+        this.puzzleAngleFactor = angle;
+        
         for (piece in spritePieceArray)
         {
             piece.puzzleScaleXFactor = scaleX;
@@ -172,6 +194,20 @@ class PlayModule extends FlxState
     }
     
     //}    
+    
+    private function UpdateCursor():Void 
+    {
+        this.mouseCursor.setPosition(FlxG.mouse.x - 4, FlxG.mouse.y);
+        
+        if (FlxG.mouse.pressed == false)
+        {
+            this.mouseCursor.animation.play("default");
+        }
+        else 
+        {
+            this.mouseCursor.animation.play("press");
+        }
+    }
     
     private function CheckCollisionCount():Void 
     {
@@ -199,24 +235,40 @@ class PlayModule extends FlxState
             return false;
         }
         
-        for (piece in spritePieceArray)
+        //for (piece in spritePieceArray)
+        //{
+            //if (piece.scale.x > 1 + SCALE_RANGE || piece.scale.x < 1 - SCALE_RANGE)
+            //{
+                //return false;
+            //}
+            //
+            //if (piece.scale.y > 1 + SCALE_RANGE || piece.scale.y < 1 - SCALE_RANGE)
+            //{
+                //return false;
+            //}
+            //
+            //var angle = piece.angle%360;
+            //angle = (angle + 360)%360;
+            //if (angle > ANGLE_RANGE || angle < ANGLE_RANGE)
+            //{
+                //return false;
+            //}
+        //}
+        
+        if (Math.abs(puzzleScaleXFactor + assignPuzzleScaleX) > SCALE_RANGE)
         {
-            if (Math.abs(piece.scale.x) > 1 + SCALE_RANGE)
-            {
-                return false;
-            }
-            
-            if (Math.abs(piece.scale.y) > 1 + SCALE_RANGE)
-            {
-                return false;
-            }
-            
-            var angle = piece.angle%360;
-            
-            if (Math.abs(angle) > ANGLE_RANGE)
-            {
-                return false;
-            }
+            return false;
+        }
+        
+        if (Math.abs(puzzleScaleYFactor + assignPuzzleScaleY) > SCALE_RANGE)
+        {
+            return false;
+        }
+        
+        var angle = (puzzleAngleFactor + assignPuzzleAngle)%360;
+        if (Math.abs(angle) > ANGLE_RANGE)
+        {
+            return false;
         }
         
         return true;
@@ -237,6 +289,12 @@ class PlayModule extends FlxState
         this.sliderScaleY.active = false;
         this.sliderAngle.active = false;
         
+        this.remove(sliderScaleX);
+        this.remove(sliderScaleY);
+        this.remove(sliderAngle);
+        
+        this.remove(shadowSpr);
+        
         //
         for (piece in spritePieceArray)
         {
@@ -244,9 +302,17 @@ class PlayModule extends FlxState
         }
 
         LevelManager.Get().LevelClear();
+        AudioManager.Get().PlayHeartBeat();
         //
-        FlxG.camera.flash(0xffEEEEEE, 2, function ():Void 
+        FlxG.camera.flash(0xAAEEEEEE, 2, function ():Void 
         {
+            var bag:FlxSprite = new FlxSprite(8*8, 8*22);
+            bag.loadGraphic(AssetPaths.Briefcase__png);
+            bag.scale.set(1.5, 1.5);
+            bag.alpha = 0.0;
+            FlxTween.tween(bag, {alpha: 1.0}, 0.5);
+            this.add(bag);
+            
             Timer.delay(function ():Void 
             {
                 var stampSprite:FlxSprite = new FlxSprite();
@@ -257,29 +323,32 @@ class PlayModule extends FlxState
                     stampSprite.stamp(spritePieceArray[i]);
                 }
                 
+                this.remove(bag);
                 this.add(stampSprite);
+                this.add(bag);
                 
                 this.remove(spritePieceGroup);
                 
                 var options:TweenOptions = { type: FlxTween.LOOPING};
                 
-                FlxTween.tween(stampSprite.scale, {x: 0.3, y: 0.3}, 2.5);
+                FlxTween.tween(stampSprite.scale, {x: 0.3, y: 0.3}, 1.0);
                 
-                FlxTween.angle(stampSprite, 0, 360, 1, options);
+                //FlxTween.angle(stampSprite, 0, 360, 1, options);
                 
-                FlxTween.tween(stampSprite, {y: -100}, 0.5, {onComplete:function(tween:FlxTween):Void 
+                FlxTween.tween(stampSprite, {y: 200, x: 30}, 1.0);
+                
+                Timer.delay(function ():Void 
                 {
-                    FlxTween.tween(stampSprite, {y: 250}, 2);
-                }} );
-                FlxTween.tween(stampSprite, {x: 120}, 1.5, {onComplete:function(tween:FlxTween):Void 
-                {
-                    FlxTween.tween(stampSprite, {x: 0}, 0.5);
-                }} );
+                    FlxTween.tween(bag.scale, {x: 2.5, y: 2.5}, 0.1, {onComplete:function(tween:FlxTween):Void 
+                    {
+                        FlxTween.tween(bag.scale, {x: 1.5, y: 1.5}, 0.1);
+                    }}); 
+                }, 800);
                 
                 Timer.delay( function ():Void 
                 {
                     FlxG.switchState(new CutsceneModule());
-                }, 4000);
+                }, 3000);
                 
             }, 2000);
             
@@ -303,23 +372,33 @@ class PlayModule extends FlxState
                 trace("Initial again done");
             });
         }
+        
+        if (FlxG.keys.justPressed.SPACE)
+        {
+            this.DoLevelClearProcess();
+        }
         #end
         
-        if (interp != null)
+        if (interp == null)
         {
-            interp.variables.get("UpdateFunction")(elapsed);
+            return;
         }
+        
+        //if (interp != null)
+        //{
+            //interp.variables.get("UpdateFunction")(elapsed);
+        //}
+        
+        this.UpdateCursor();
         
         this.AssignPuzzleValues();
 
-        this.CheckCollisionCount();
+        //this.CheckCollisionCount();
         
         if (this.CheckLevelClear() == true)
         {
             this.DoLevelClearProcess();
         }
-        
-        
 	}
     
     

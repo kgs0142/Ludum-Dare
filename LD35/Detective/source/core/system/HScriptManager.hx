@@ -63,8 +63,16 @@ class HScriptManager
         //Queue
         this.AddLoadQueue(AssetPaths.config__hs, force);
         this.AddLoadQueue(AssetPaths.levelTest__hs, force);
+        this.AddLoadQueue(AssetPaths.level_1st__hs, force);
+        this.AddLoadQueue(AssetPaths.level_2nd__hs, force);
+        this.AddLoadQueue(AssetPaths.level_3rd__hs, force);
+        this.AddLoadQueue(AssetPaths.level_4th__hs, force);
         this.AddLoadQueue(AssetPaths.cutsceneTest__hs, force);
-        this.AddLoadQueue(AssetPaths.cutSceneEnd__hs, force);
+        this.AddLoadQueue(AssetPaths.cutscene_1st__hs, force);
+        this.AddLoadQueue(AssetPaths.cutscene_2nd__hs, force);
+        this.AddLoadQueue(AssetPaths.cutscene_3rd__hs, force);
+        this.AddLoadQueue(AssetPaths.cutscene_4th__hs, force);
+        this.AddLoadQueue(AssetPaths.cutscene_end__hs, force);
         
         this.StartLoad();
     }

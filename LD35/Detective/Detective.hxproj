@@ -20,13 +20,14 @@
     <class path="D:\HaxeToolkit\haxe\lib\lime\2,9,0" />
     <class path="D:\HaxeToolkit\haxe\lib\hscript\2,0,7" />
     <class path="D:\HaxeToolkit\haxe\lib\flixel-addons\2,0,0" />
+    <class path="D:\HaxeToolkit\haxe\lib\flixel-ui\2,0,0" />
     <class path="source" />
     <class path="D:\HaxeToolkit\haxe\lib\openfl\3,6,0\extern" />
     <class path="export\flash\haxe" />
   </classpaths>
   <!-- Build options -->
   <build>
-    <option directives="flixel=4.0.0&#xA;openfl=3.6.0&#xA;lime=2.9.0&#xA;hscript=2.0.7&#xA;flixel-addons=2.0.0&#xA;openfl-next&#xA;tools=2.9.0&#xA;FLX_NO_DEBUG&#xA;no-compilation&#xA;NAPE_RELEASE_BUILD&#xA;openfl-flash&#xA;web&#xA;display" />
+    <option directives="flixel=4.0.0&#xA;openfl=3.6.0&#xA;lime=2.9.0&#xA;hscript=2.0.7&#xA;flixel-addons=2.0.0&#xA;flixel-ui=2.0.0&#xA;openfl-next&#xA;tools=2.9.0&#xA;FLX_NO_DEBUG&#xA;no-compilation&#xA;NAPE_RELEASE_BUILD&#xA;openfl-flash&#xA;web&#xA;display" />
     <option flashStrict="False" />
     <option noInlineOnDebug="False" />
     <option mainClass="ApplicationMain" />

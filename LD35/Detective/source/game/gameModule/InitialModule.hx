@@ -1,12 +1,13 @@
 package game.gameModule;
 
 import core.misc.CustomInterp;
-import core.system.AudioManager;
+import game.manager.AudioManager;
 import core.system.HScriptManager;
 import flixel.FlxG;
 import flixel.FlxState;
 import flixel.input.mouse.FlxMouseEventManager;
 import flixel.system.scaleModes.FixedScaleMode;
+import game.manager.LevelManager;
 import utils.Fonts;
 
 using core.util.CustomExtension;
@@ -24,7 +25,7 @@ class InitialModule extends FlxState
 	{
 		super.create();
         
-        FlxG.debugger.visible = true;
+        //FlxG.debugger.visible = true;
         
         // We need the MouseEventManager plugin for sprite-mouse-interaction
 		FlxG.plugins.add(new FlxMouseEventManager());
@@ -36,11 +37,13 @@ class InitialModule extends FlxState
         {
             var interp:CustomInterp = new CustomInterp();
             interp.CommonInitial();
+            interp.variables.set("LevelManager", LevelManager);
+            
             interp.execute(HScriptManager.Get().GetParsedScript(AssetPaths.config__hs));
             interp.variables.get("testCreateFunction")();
             
             FlxG.switchState(new MenuModule());
-            //FlxG.switchState(new CutsceneModule());
+            //FlxG.switchState(new EndGameModule());
         });
         
         //----------------------------------------------------------------------------------------	}

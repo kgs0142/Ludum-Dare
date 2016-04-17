@@ -7,6 +7,7 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.tweens.FlxTween;
+import game.manager.AudioManager;
 import game.manager.LevelManager;
 import haxe.Timer;
 
@@ -63,6 +64,10 @@ class CutsceneModule extends FlxState
         }, 1000);
         
         this.PopCutscene();
+        
+        FlxG.mouse.visible = true;
+        
+        AudioManager.Get().MusicFadeInAndBGMFadeOut();
     }
     
     override public function destroy():Void
@@ -91,6 +96,8 @@ class CutsceneModule extends FlxState
         
         if (FlxG.mouse.justPressed)
         {
+            AudioManager.Get().PlaySound(AssetPaths.blip__wav, 0.3);
+            
             if (delayTween != null)
             {
                 delayTween.cancel();
@@ -137,7 +144,7 @@ class CutsceneModule extends FlxState
         {
             clickSkipAble = true;
 
-            delayTween = FlxTween.angle(new FlxSprite(), 0, 360, 2, {onComplete: function (tween:FlxTween):Void 
+            delayTween = FlxTween.angle(new FlxSprite(), 0, 360, 5.5, {onComplete: function (tween:FlxTween):Void 
             {
                 this.PopCutscene();
             }});
