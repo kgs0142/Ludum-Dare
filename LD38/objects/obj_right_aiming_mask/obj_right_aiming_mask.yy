@@ -1,22 +1,13 @@
 {
-    "id": "64111d87-bc75-47e8-9f5a-1131483a0f3f",
+    "id": "970146f0-208e-4179-bb8f-486e15a757d0",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "obj_seagull",
+    "name": "obj_right_aiming_mask",
     "eventList": [
-        {
-            "id": "5340184b-1267-4f84-9120-241d5758876a",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 0,
-            "m_owner": "64111d87-bc75-47e8-9f5a-1131483a0f3f"
-        }
+        
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
-    "parentObjectId": "ec79193f-db2c-42a6-a433-2a786fab5f8d",
+    "parentObjectId": "00000000-0000-0000-0000-000000000000",
     "persistent": false,
     "physicsAngularDamping": 0.1,
     "physicsDensity": 0.5,
@@ -31,6 +22,6 @@
     "physicsShapePoints": null,
     "physicsStartAwake": true,
     "solid": false,
-    "spriteId": "22f7834d-7680-4791-9344-5f9683d89237",
+    "spriteId": "677b66fd-0ec0-44d6-8501-2caa1a8daa6f",
     "visible": true
 }
