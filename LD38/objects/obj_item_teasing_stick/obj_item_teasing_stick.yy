@@ -4,7 +4,26 @@
     "mvc": "1.0",
     "name": "obj_item_teasing_stick",
     "eventList": [
-        
+        {
+            "id": "614bf312-9b6b-4b01-9d4d-c41ab3d41e88",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 0,
+            "m_owner": "9aa0c0cd-70ed-457f-9377-1d7beb61fd9c"
+        },
+        {
+            "id": "c1cd3421-d882-4662-8970-bfdf65f0eb02",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "9a8fccca-5c2c-42ce-92b3-bb1d2f99d06f",
+            "enumb": 0,
+            "eventtype": 4,
+            "m_owner": "9aa0c0cd-70ed-457f-9377-1d7beb61fd9c"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "parentObjectId": "00000000-0000-0000-0000-000000000000",

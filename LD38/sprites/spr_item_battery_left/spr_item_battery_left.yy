@@ -6,13 +6,13 @@
     "For3D": false,
     "HTile": false,
     "VTile": false,
-    "bbox_bottom": 63,
+    "bbox_bottom": 7,
     "bbox_left": 0,
-    "bbox_right": 63,
+    "bbox_right": 8,
     "bbox_top": 0,
-    "bboxmode": 0,
+    "bboxmode": 2,
     "colkind": 1,
-    "coltolerance": 0,
+    "coltolerance": 14,
     "frames": [
         {
             "id": "824de8fa-3587-46b9-a30c-8b900b83356e",

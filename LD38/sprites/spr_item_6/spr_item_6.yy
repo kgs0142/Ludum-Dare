@@ -8,31 +8,31 @@
     "VTile": false,
     "bbox_bottom": 9,
     "bbox_left": 0,
-    "bbox_right": 7,
+    "bbox_right": 13,
     "bbox_top": 0,
     "bboxmode": 0,
     "colkind": 1,
     "coltolerance": 5,
     "frames": [
         {
-            "id": "9808fbd1-d553-4cce-8a3c-f94ef4fcf5aa",
+            "id": "39992362-dd0b-4746-be53-a63899282c7e",
             "modelName": "GMSpriteFrame",
             "mvc": "1.0",
             "SpriteId": "e2471951-7e1f-4f3d-8e62-5275c98202b8",
             "compositeImage": {
-                "id": "f0232813-232d-43da-893c-27fd6c900d73",
+                "id": "0978ea03-772c-4c79-9cb0-c4528d843c7e",
                 "modelName": "GMSpriteImage",
                 "mvc": "1.0",
-                "FrameId": "9808fbd1-d553-4cce-8a3c-f94ef4fcf5aa",
+                "FrameId": "39992362-dd0b-4746-be53-a63899282c7e",
                 "LayerId": "00000000-0000-0000-0000-000000000000"
             },
             "images": [
                 {
-                    "id": "c47be8ab-99d4-4496-8062-ab7b3d193ebb",
+                    "id": "a426f894-e2e0-45c5-964a-7ca1f6bbefbb",
                     "modelName": "GMSpriteImage",
                     "mvc": "1.0",
-                    "FrameId": "9808fbd1-d553-4cce-8a3c-f94ef4fcf5aa",
-                    "LayerId": "c2e645f4-320f-4187-a7f5-6ec57afb9e77"
+                    "FrameId": "39992362-dd0b-4746-be53-a63899282c7e",
+                    "LayerId": "9ff37414-8f6a-41d1-8df1-3b6a3012eeb0"
                 }
             ]
         }
@@ -42,7 +42,7 @@
     "height": 64,
     "layers": [
         {
-            "id": "c2e645f4-320f-4187-a7f5-6ec57afb9e77",
+            "id": "9ff37414-8f6a-41d1-8df1-3b6a3012eeb0",
             "modelName": "GMImageLayer",
             "mvc": "1.0",
             "SpriteId": "e2471951-7e1f-4f3d-8e62-5275c98202b8",
@@ -53,7 +53,7 @@
             "visible": true
         }
     ],
-    "origin": 0,
+    "origin": 9,
     "playbackSpeed": 15,
     "playbackSpeedType": 0,
     "sepmasks": false,
@@ -62,6 +62,6 @@
     "textureGroup": 0,
     "type": 0,
     "width": 64,
-    "xorig": 0,
-    "yorig": 0
+    "xorig": 6,
+    "yorig": 1
 }
