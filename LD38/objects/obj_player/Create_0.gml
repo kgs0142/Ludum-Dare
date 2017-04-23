@@ -7,4 +7,4 @@ _takingItem = noone;
 _isInWater = false;
 
 //debug
-_invincible = true;
+_invincible = false;

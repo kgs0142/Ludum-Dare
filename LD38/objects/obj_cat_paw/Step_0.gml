@@ -1,9 +1,11 @@
 
 
+exit
+
 
 if (_isDoneMovingBackForTeasingStick == false)
 {
-	return;
+	exit;
 }
 
 //only doing with left paw.

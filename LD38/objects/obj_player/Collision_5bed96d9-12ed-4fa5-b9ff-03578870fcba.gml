@@ -1,6 +1,7 @@
 /// @description Insert description here
 
 if (object_get_parent(other.object_index) == obj_water || 
+	object_get_parent(other.object_index) == obj_cloud ||
 	other.object_index == obj_seagull)
 {
 	exit;

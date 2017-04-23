@@ -22,6 +22,6 @@ _isAlive = false;
 
 sprite_index = spr_player_die;
 
-alarm_set(0, 120);
+alarm_set(0, 60);
 
 

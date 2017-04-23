@@ -6,11 +6,13 @@ var MOVING_DURATION = 0.2*1000*1000;
 var RETURN_DURATION = 2.0*1000*1000;
 var ATTACK_DURATION = 1.5*1000*1000;
 
-var NEXT_RAISING_DELAY = 0.5*1000*1000;
+var NEXT_RAISING_DELAY = 0.7*1000*1000;
 var DO_FALLING_DURATION = 0.1*1000*1000;
 
 var noPossibleTarget = true;
 var noMovingTarget = true;
+
+event_perform(ev_other, ev_user0);
 
 if(_isDoneMovingBackForTeasingStick == true)
 {
@@ -33,7 +35,7 @@ if (obj_game_manager._isGameClear == true)
 
 		_isDoneMovingBackForTeasingStick = true;
 
-		event_perform_object(obj_gui_thanks, ev_other, ev_user0);
+		alarm_set(1, 30);
 	}
 	
 	x = _pawShadow.x;
@@ -128,7 +130,9 @@ if (noPossibleTarget == true)
 		_pawShadow.speed = 0;
 	}
 	
-	_fallingDuration = 0.0001;
+	//_fallingDuration = 0.0001;
+	_fallingDuration = FALLING_DURATION;
+
 	_doFallingDuration = DO_FALLING_DURATION;
 	
 	x = _pawShadow.x;
@@ -183,6 +187,11 @@ if (_movingDuration > 0)
 		_pawShadow.direction = point_direction(_pawShadow.x, _pawShadow.y, _target.x, _target.y);
 	}
 	
+	if (_movingDuration <= 0)
+	{
+		_target = noone;
+	}
+	
 	x = _pawShadow.x;
 	y = _pawShadow.y - (raisingRatio*_raiseHeight);
 }
@@ -205,6 +214,8 @@ if (_fallingDuration <= 0 && _doFallingDuration > 0)
 		_nextRaisingDelay = NEXT_RAISING_DELAY;
 		
 		audio_play_sound(snd_cat_paw_hit, 10, false);
+		
+		part_particles_create(global.ps, _pawShadow.x, _pawShadow.y, global.pt_dust, 15);
 		
 		//Create a hitbox here.
 		with (obj_breakable)

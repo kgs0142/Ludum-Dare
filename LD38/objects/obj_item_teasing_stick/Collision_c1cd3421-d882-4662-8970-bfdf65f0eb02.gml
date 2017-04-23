@@ -50,4 +50,6 @@ if (_gotBatteryUp && _gotBatteryLeft && _gotBatteryDown && _gotBatteryRight)
 	image_speed = 0.35;
 	
 	obj_game_manager._isGameClear = true;
+	
+	alarm_set(0, 180);
 }

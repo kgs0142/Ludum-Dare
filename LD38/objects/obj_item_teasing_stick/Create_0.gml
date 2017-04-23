@@ -7,3 +7,4 @@ _gotBatteryRight = false;
 
 image_speed = 0;
 
+_ableToReturnToMenu = false;
